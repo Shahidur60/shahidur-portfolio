@@ -82,7 +82,13 @@
 
   /* ambient background washes */
   .mesh{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
-  .mesh::before,.mesh::after{content:"";position:absolute;border-radius:50%;filter:blur(130px);opacity:.5}
+  .mesh::before,.mesh::after{content:"";position:absolute;border-radius:50%;filter:blur(130px);opacity:.5;animation:aurora 32s ease-in-out infinite alternate}
+  .mesh::after{animation-duration:40s;animation-direction:alternate-reverse}
+  @keyframes aurora{
+    0%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(-5vw,4vh) scale(1.14)}
+    100%{transform:translate(4vw,-4vh) scale(.94)}
+  }
   .mesh::before{width:60vw;height:60vw;top:-25vw;right:-18vw;background:radial-gradient(circle,rgba(91,122,64,.14),transparent 65%)}
   .mesh::after{width:52vw;height:52vw;bottom:-22vw;left:-16vw;background:radial-gradient(circle,rgba(27,112,79,.12),transparent 65%)}
   :root[data-theme="dark"] .mesh::before{background:radial-gradient(circle,rgba(156,205,127,.10),transparent 65%)}
@@ -156,20 +162,22 @@
     background:color-mix(in srgb,var(--accent) 7%,transparent);
     padding:7px 14px;border-radius:999px;margin-bottom:22px;letter-spacing:.03em;
   }
-  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}60%{box-shadow:0 0 0 8px transparent}}
+  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px color-mix(in srgb,var(--accent) 55%,transparent)}
   h1.hero-name{
     font-family:var(--head);font-weight:800;font-size:clamp(2.5rem,5.6vw,4.1rem);
     line-height:1.06;letter-spacing:-.02em;margin-bottom:16px;
   }
-  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h1 .grad{
+    background:var(--grad);background-size:220% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:gradShift 7s ease-in-out infinite alternate;
+  }
+  @keyframes gradShift{from{background-position:0% center}to{background-position:100% center}}
   .typer-line{
     font-family:var(--mono);font-size:clamp(.95rem,1.8vw,1.18rem);color:var(--muted);
     height:1.9em;white-space:nowrap;overflow:hidden;margin-bottom:20px;
   }
   .typer-line .prompt{color:var(--accent-3)}
-  .typer-line .caret{display:inline-block;width:2px;border-radius:2px;background:var(--accent);margin-left:3px;animation:blink 1.2s ease-in-out infinite}
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:.12}}
   .hero-sub{color:var(--muted);max-width:56ch;font-size:1.02rem;margin-bottom:30px}
   .hero-sub strong{color:var(--text);font-weight:600}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
@@ -178,7 +186,13 @@
     padding:13px 24px;border-radius:13px;transition:.25s;border:1px solid transparent;
   }
   .btn svg{width:17px;height:17px}
-  .btn-primary{background:var(--grad);color:var(--on-accent);box-shadow:0 10px 32px -10px var(--glow)}
+  .btn-primary{background:var(--grad);color:var(--on-accent);box-shadow:0 10px 32px -10px var(--glow);position:relative;overflow:hidden}
+  .btn-primary::before{
+    content:"";position:absolute;top:0;left:-85%;width:55%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);
+    transform:skewX(-20deg);transition:left .65s ease;
+  }
+  .btn-primary:hover::before{left:135%}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px color-mix(in srgb,var(--accent) 45%,transparent)}
   .btn-ghost{border-color:var(--card-border);color:var(--text);background:var(--card)}
   .btn-ghost:hover{border-color:var(--card-border-hover);transform:translateY(-2px)}
@@ -211,7 +225,6 @@
   .term-body .c-ok{color:var(--accent)}
   .term-body .c-key{color:var(--accent-2)}
   .term-body .c-dim{color:var(--faint)}
-  .term-caret{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:-2px;animation:blink 1s step-end infinite}
 
   /* stats band */
   .stats{
@@ -232,8 +245,7 @@
     display:flex;flex-direction:column;align-items:center;gap:8px;
   }
   .scroll-hint .wheel{width:22px;height:36px;border:2px solid var(--faint);border-radius:12px;position:relative}
-  .scroll-hint .wheel::after{content:"";position:absolute;top:6px;left:50%;width:3px;height:7px;margin-left:-1.5px;border-radius:3px;background:var(--accent);animation:wheel 1.8s infinite}
-  @keyframes wheel{0%{opacity:1;transform:translateY(0)}70%{opacity:0;transform:translateY(12px)}100%{opacity:0}}
+  .scroll-hint .wheel::after{content:"";position:absolute;top:6px;left:50%;width:3px;height:7px;margin-left:-1.5px;border-radius:3px;background:var(--accent)}
 
   /* ============================= SECTION HEADS ============================= */
   .sec-head{margin-bottom:52px}
@@ -242,9 +254,11 @@
   .sec-head h2{font-family:var(--head);font-weight:800;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.02em;margin-top:10px}
   .sec-head p{color:var(--muted);margin-top:10px;max-width:62ch}
 
-  /* reveal animation */
+  /* reveal animation (staggered in grids) */
   .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
   .rv.in{opacity:1;transform:none}
+  .proj-grid .rv:nth-child(3n+2),.skill-grid .rv:nth-child(3n+2),.edu-grid .rv:nth-child(2),.honor-grid .rv:nth-child(2n){transition-delay:.12s}
+  .proj-grid .rv:nth-child(3n),.skill-grid .rv:nth-child(3n),.edu-grid .rv:nth-child(3){transition-delay:.24s}
 
   /* ============================= ABOUT ============================= */
   .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
@@ -260,14 +274,13 @@
     position:absolute;display:flex;align-items:center;gap:9px;
     background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(10px);
     border:1px solid var(--card-border);border-radius:14px;padding:10px 15px;
-    font-size:.8rem;font-weight:600;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite;
+    font-size:.8rem;font-weight:600;box-shadow:var(--shadow);
   }
   .pic-badge small{display:block;font-weight:400;color:var(--muted);font-size:.7rem}
   .pic-badge.b1{top:16px;right:-26px}
-  .pic-badge.b2{bottom:28px;left:-30px;animation-delay:-2.5s}
+  .pic-badge.b2{bottom:28px;left:-30px}
   .pic-badge .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
   .pic-badge .ic svg{width:17px;height:17px}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
   .about-txt p{color:var(--muted);margin-bottom:16px}
   .about-txt p strong{color:var(--text)}
   .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
@@ -456,7 +469,6 @@
   .new-flag{
     display:inline-block;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.08em;
     color:var(--on-accent);background:var(--grad);padding:3px 10px;border-radius:999px;margin:0 8px 8px 0;
-    animation:pulse 2s infinite;
   }
   .news-item h4{font-size:.98rem;font-weight:600;margin-bottom:5px}
   .news-item p{color:var(--muted);font-size:.85rem}
@@ -599,7 +611,7 @@
       <div>
         <span class="eyebrow"><span class="pulse"></span>PhD Candidate · Texas A&amp;M University · GPA 4.0</span>
         <h1 class="hero-name">Md Shahidur<br><span class="grad">Rahaman</span></h1>
-        <div class="typer-line"><span class="prompt">&gt;_</span> <span id="typer"></span><span class="caret">&nbsp;</span></div>
+        <div class="typer-line"><span class="prompt">&gt;_</span> <span id="typer"></span></div>
         <p class="hero-sub">
           I break and then rebuild the trust layer of secure communication — researching
           <strong>end-to-end encryption</strong>, <strong>authentication ceremonies</strong>, and
@@ -1270,11 +1282,7 @@
     termBody.innerHTML='';
     var i=0;
     function next(){
-      if(i>=termLines.length){
-        var last=termBody.lastChild;
-        if(last){var c=document.createElement('span');c.className='term-caret';last.appendChild(c);}
-        return;
-      }
+      if(i>=termLines.length)return;
       var ln=document.createElement('span');
       ln.className='ln'; ln.innerHTML=termLines[i].t;
       ln.style.opacity='0';ln.style.transform='translateY(4px)';
