@@ -82,34 +82,18 @@
 
   /* ambient background washes */
   .mesh{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
-  .mesh::before,.mesh::after{content:"";position:absolute;border-radius:50%;filter:blur(130px);opacity:.5;animation:aurora 32s ease-in-out infinite alternate}
-  .mesh::after{animation-duration:40s;animation-direction:alternate-reverse}
-  @keyframes aurora{
-    0%{transform:translate(0,0) scale(1)}
-    50%{transform:translate(-5vw,4vh) scale(1.14)}
-    100%{transform:translate(4vw,-4vh) scale(.94)}
-  }
+  .mesh::before,.mesh::after{content:"";position:absolute;border-radius:50%;filter:blur(130px);opacity:.5}
   .mesh::before{width:60vw;height:60vw;top:-25vw;right:-18vw;background:radial-gradient(circle,rgba(91,122,64,.14),transparent 65%)}
   .mesh::after{width:52vw;height:52vw;bottom:-22vw;left:-16vw;background:radial-gradient(circle,rgba(27,112,79,.12),transparent 65%)}
   :root[data-theme="dark"] .mesh::before{background:radial-gradient(circle,rgba(156,205,127,.10),transparent 65%)}
   :root[data-theme="dark"] .mesh::after{background:radial-gradient(circle,rgba(99,200,152,.10),transparent 65%)}
 
-  /* floating decorations */
-  .deco{position:absolute;pointer-events:none;z-index:0}
-  .deco.orb{border-radius:50%;background:var(--grad);opacity:.13;filter:blur(3px);animation:drift 16s ease-in-out infinite}
-  .deco.ring{border:1.5px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:50%;animation:drift 20s ease-in-out infinite reverse}
-  .deco.sq{border:1.5px solid color-mix(in srgb,var(--accent-3) 40%,transparent);border-radius:22%;animation:spinDrift 26s linear infinite}
-  .deco.glyph{font-family:var(--mono);color:color-mix(in srgb,var(--accent-2) 55%,transparent);font-size:20px;animation:drift 14s ease-in-out infinite}
-  @keyframes drift{
-    0%,100%{transform:translate(0,0) rotate(0deg)}
-    33%{transform:translate(16px,-24px) rotate(7deg)}
-    66%{transform:translate(-14px,14px) rotate(-5deg)}
+  /* paper grain texture (static) */
+  .grain{
+    position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>");
   }
-  @keyframes spinDrift{
-    0%{transform:translateY(0) rotate(0deg)}
-    50%{transform:translateY(-26px) rotate(180deg)}
-    100%{transform:translateY(0) rotate(360deg)}
-  }
+  :root[data-theme="dark"] .grain{mix-blend-mode:soft-light;opacity:.09}
 
   /* scroll progress */
   #progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:1001;border-radius:0 3px 3px 0}
@@ -154,7 +138,13 @@
   #hero{
     min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) 0 60px;
   }
-  #net{position:absolute;inset:0;z-index:-1;opacity:.85}
+  #hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background-image:radial-gradient(color-mix(in srgb,var(--text) 11%,transparent) 1px,transparent 1px);
+    background-size:28px 28px;
+    -webkit-mask-image:radial-gradient(ellipse 72% 68% at 50% 36%,#000 18%,transparent 74%);
+    mask-image:radial-gradient(ellipse 72% 68% at 50% 36%,#000 18%,transparent 74%);
+  }
   .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
   .eyebrow{
     display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.78rem;
@@ -167,12 +157,7 @@
     font-family:var(--head);font-weight:800;font-size:clamp(2.5rem,5.6vw,4.1rem);
     line-height:1.06;letter-spacing:-.02em;margin-bottom:16px;
   }
-  h1 .grad{
-    background:var(--grad);background-size:220% auto;
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    animation:gradShift 7s ease-in-out infinite alternate;
-  }
-  @keyframes gradShift{from{background-position:0% center}to{background-position:100% center}}
+  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .typer-line{
     font-family:var(--mono);font-size:clamp(.95rem,1.8vw,1.18rem);color:var(--muted);
     height:1.9em;white-space:nowrap;overflow:hidden;margin-bottom:20px;
@@ -266,9 +251,8 @@
   .pic-frame::before{
     content:"";position:absolute;inset:-18px;border-radius:28px;z-index:-1;
     background:conic-gradient(from 180deg,var(--accent),var(--accent-2),var(--accent-3),var(--accent));
-    filter:blur(42px);opacity:.3;animation:spinHue 10s linear infinite;
+    filter:blur(42px);opacity:.28;
   }
-  @keyframes spinHue{to{filter:blur(42px) hue-rotate(360deg)}}
   .pic-frame img{border-radius:24px;border:1px solid var(--card-border);box-shadow:var(--shadow);aspect-ratio:4/4.6;object-fit:cover;object-position:top}
   .pic-badge{
     position:absolute;display:flex;align-items:center;gap:9px;
@@ -564,6 +548,7 @@
 <body>
 
 <div class="mesh" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 <div id="progress" aria-hidden="true"></div>
 
 <!-- ============================= NAV ============================= -->
@@ -598,14 +583,6 @@
 
 <!-- ============================= HERO ============================= -->
 <header id="hero">
-  <canvas id="net" aria-hidden="true"></canvas>
-  <span class="deco orb" style="width:110px;height:110px;top:16%;left:46%;animation-delay:-4s" aria-hidden="true"></span>
-  <span class="deco orb" style="width:54px;height:54px;top:72%;left:70%;animation-delay:-9s" aria-hidden="true"></span>
-  <span class="deco ring" style="width:150px;height:150px;top:64%;left:3%" aria-hidden="true"></span>
-  <span class="deco ring" style="width:64px;height:64px;top:11%;left:7%;animation-delay:-7s" aria-hidden="true"></span>
-  <span class="deco sq" style="width:46px;height:46px;top:24%;right:5%" aria-hidden="true"></span>
-  <span class="deco glyph" style="top:48%;right:10%;animation-delay:-5s" aria-hidden="true">{ }</span>
-  <span class="deco glyph" style="top:84%;left:38%;animation-delay:-11s" aria-hidden="true">&lt;/&gt;</span>
   <div class="wrap" style="width:100%">
     <div class="hero-grid">
       <div>
@@ -1076,8 +1053,6 @@
 
 <!-- ============================= NEWS & VISION ============================= -->
 <section id="news">
-  <span class="deco ring" style="width:120px;height:120px;top:10%;right:4%" aria-hidden="true"></span>
-  <span class="deco orb" style="width:70px;height:70px;bottom:12%;left:3%;animation-delay:-6s" aria-hidden="true"></span>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="sec-tag">08 · tail -f ./news</span>
@@ -1400,75 +1375,6 @@
     }).join('');
   }
 
-  /* ---------- hero particle network ---------- */
-  (function(){
-    var cv=document.getElementById('net'); if(!cv)return;
-    var ctx=cv.getContext('2d'), DPR=Math.min(window.devicePixelRatio||1,2);
-    var W=0,H=0,pts=[],mouse={x:-9999,y:-9999}, raf=null, running=false;
-    function col(){
-      return document.documentElement.getAttribute('data-theme')==='light'
-        ? {line:'60,92,66',dot:'27,112,79'} : {line:'150,185,150',dot:'99,200,152'};
-    }
-    function size(){
-      var host=cv.parentElement; W=host.clientWidth; H=host.clientHeight;
-      cv.width=W*DPR; cv.height=H*DPR; cv.style.width=W+'px'; cv.style.height=H+'px';
-      ctx.setTransform(DPR,0,0,DPR,0,0);
-      var count=Math.min(Math.round(W*H/16000),110);
-      pts=[];
-      for(var i=0;i<count;i++){
-        pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.6+.6});
-      }
-    }
-    function step(){
-      ctx.clearRect(0,0,W,H);
-      var c=col();
-      for(var i=0;i<pts.length;i++){
-        var p=pts[i];
-        p.x+=p.vx; p.y+=p.vy;
-        if(p.x<0||p.x>W)p.vx*=-1;
-        if(p.y<0||p.y>H)p.vy*=-1;
-        var dxm=p.x-mouse.x, dym=p.y-mouse.y, dm=dxm*dxm+dym*dym;
-        if(dm<14000){var f=(14000-dm)/14000*0.04; p.x+=dxm*f; p.y+=dym*f;}
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,6.2832);
-        ctx.fillStyle='rgba('+c.dot+',.75)';
-        ctx.fill();
-      }
-      for(var a=0;a<pts.length;a++){
-        for(var b=a+1;b<pts.length;b++){
-          var dx=pts[a].x-pts[b].x, dy=pts[a].y-pts[b].y, d=dx*dx+dy*dy;
-          if(d<15000){
-            ctx.beginPath();
-            ctx.moveTo(pts[a].x,pts[a].y); ctx.lineTo(pts[b].x,pts[b].y);
-            ctx.strokeStyle='rgba('+c.line+','+(0.16*(1-d/15000)).toFixed(3)+')';
-            ctx.lineWidth=1; ctx.stroke();
-          }
-        }
-      }
-      raf=requestAnimationFrame(step);
-    }
-    function start(){ if(running||reduce)return; running=true; step(); }
-    function stop(){ running=false; if(raf)cancelAnimationFrame(raf); raf=null; }
-    var host=cv.parentElement;
-    host.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
-    host.addEventListener('pointerleave',function(){mouse.x=-9999;mouse.y=-9999;});
-    var rt;
-    window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(size,200);});
-    size();
-    if(!reduce){
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(function(es){
-          es.forEach(function(e){ e.isIntersecting?start():stop(); });
-        },{threshold:.02}).observe(host);
-      } else start();
-    } else {
-      /* static frame for reduced motion */
-      var c=col();
-      pts.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.2832);ctx.fillStyle='rgba('+c.dot+',.6)';ctx.fill();});
-    }
-    /* repaint colors on theme switch */
-    document.getElementById('themeToggle').addEventListener('click',function(){ if(reduce){ctx.clearRect(0,0,W,H);var cc=col();pts.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.2832);ctx.fillStyle='rgba('+cc.dot+',.6)';ctx.fill();});} });
-  })();
 
 })();
 </script>
