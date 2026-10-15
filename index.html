@@ -1,560 +1,1340 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Md Shahidur Rahaman — Security &amp; AI Researcher</title>
+  <meta name="description" content="Md Shahidur Rahaman — PhD Candidate in Computer Science at Texas A&M University. Research in E2EE communication security, authentication ceremonies, and ML/LLM security. 13 peer-reviewed publications, 217 citations.">
+  <meta name="author" content="Md Shahidur Rahaman">
+  <meta property="og:title" content="Md Shahidur Rahaman — Security & AI Researcher">
+  <meta property="og:description" content="PhD Candidate @ Texas A&M · E2EE & Authentication Security · ML/LLM Security · 13 publications, 217 citations.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/new.jpg">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <title>Shahidur's Website</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <style>
+  /* ============================= TOKENS ============================= */
+  :root{
+    --bg:#f7f5ee;
+    --bg-2:#eef0e4;
+    --surface:#fffefa;
+    --card:rgba(255,255,252,.72);
+    --card-border:rgba(36,56,44,.13);
+    --card-border-hover:rgba(27,112,79,.5);
+    --text:#203026;
+    --muted:#55685c;
+    --faint:#8c9b8f;
+    --accent:#1b704f;
+    --accent-2:#5b7a40;
+    --accent-3:#b65c35;
+    --on-accent:#f9faf4;
+    --glow:rgba(27,112,79,.13);
+    --grad:linear-gradient(92deg,#14573f 0%,#1b704f 45%,#558b3e 100%);
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+    --head:'Sora',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+    --nav-h:72px;
+    --r:18px;
+    --shadow:0 20px 50px -24px rgba(36,56,44,.22);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b100c;
+    --bg-2:#101711;
+    --surface:#151d16;
+    --card:rgba(173,209,183,.05);
+    --card-border:rgba(173,209,183,.13);
+    --card-border-hover:rgba(99,200,152,.45);
+    --text:#e9efe7;
+    --muted:#a2b2a2;
+    --faint:#6a7a6b;
+    --accent:#63c898;
+    --accent-2:#a9c178;
+    --accent-3:#e0905f;
+    --on-accent:#0c1510;
+    --glow:rgba(99,200,152,.15);
+    --grad:linear-gradient(92deg,#63c898 0%,#9ccd7f 55%,#d6cf7e 100%);
+    --shadow:0 20px 60px -20px rgba(0,0,0,.55);
+  }
 
-  <!-- Favicons -->
-  <link href="assets/img/tamu.png" rel="icon">
-  <link href="assets/img/tamu.png" rel="apple-touch-icon">
+  /* ============================= BASE ============================= */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 12px)}
+  body{
+    font-family:var(--body);background:var(--bg);color:var(--text);
+    line-height:1.65;overflow-x:hidden;
+    transition:background .4s ease,color .4s ease;
+  }
+  ::selection{background:var(--accent);color:var(--on-accent)}
+  ::-webkit-scrollbar{width:11px}
+  ::-webkit-scrollbar-track{background:var(--bg)}
+  ::-webkit-scrollbar-thumb{background:#c6cdbb;border-radius:8px;border:3px solid var(--bg)}
+  :root[data-theme="dark"] ::-webkit-scrollbar-thumb{background:#2c3a2e;border-color:var(--bg)}
+  a{color:var(--accent);text-decoration:none}
+  img{max-width:100%;display:block}
+  button{font-family:inherit;cursor:pointer}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0;position:relative}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  /* ambient background washes */
+  .mesh{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+  .mesh::before,.mesh::after{content:"";position:absolute;border-radius:50%;filter:blur(130px);opacity:.5}
+  .mesh::before{width:60vw;height:60vw;top:-25vw;right:-18vw;background:radial-gradient(circle,rgba(91,122,64,.14),transparent 65%)}
+  .mesh::after{width:52vw;height:52vw;bottom:-22vw;left:-16vw;background:radial-gradient(circle,rgba(27,112,79,.12),transparent 65%)}
+  :root[data-theme="dark"] .mesh::before{background:radial-gradient(circle,rgba(156,205,127,.10),transparent 65%)}
+  :root[data-theme="dark"] .mesh::after{background:radial-gradient(circle,rgba(99,200,152,.10),transparent 65%)}
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  /* scroll progress */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:1001;border-radius:0 3px 3px 0}
 
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Updated: Jan 09 2024 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  /* ============================= NAV ============================= */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);
+    display:flex;align-items:center;
+    transition:background .35s,box-shadow .35s,backdrop-filter .35s;
+  }
+  nav.scrolled{background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--card-border)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+  .logo{font-family:var(--mono);font-weight:700;font-size:1.05rem;color:var(--text);display:flex;align-items:center;gap:10px}
+  .logo .dot{width:10px;height:10px;border-radius:3px;background:var(--grad);box-shadow:0 0 14px var(--glow);transform:rotate(45deg)}
+  .logo span.path{color:var(--accent)}
+  .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+  .nav-links a{
+    color:var(--muted);font-size:.86rem;font-weight:500;padding:8px 13px;border-radius:10px;
+    transition:color .2s,background .2s;letter-spacing:.01em;
+  }
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a.active{color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .icon-btn{
+    width:38px;height:38px;border-radius:11px;border:1px solid var(--card-border);
+    background:var(--card);color:var(--muted);display:grid;place-items:center;
+    transition:.25s;
+  }
+  .icon-btn:hover{color:var(--accent);border-color:var(--card-border-hover);transform:translateY(-1px)}
+  #hamburger{display:none}
+  .mobile-menu{
+    display:none;position:fixed;inset:var(--nav-h) 0 auto 0;z-index:999;
+    background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--card-border);padding:14px 24px 22px;
+  }
+  .mobile-menu a{display:block;padding:11px 8px;color:var(--text);font-weight:500;border-radius:10px}
+  .mobile-menu a:hover{background:var(--card)}
+  .mobile-menu.open{display:block;animation:fadeDown .25s ease}
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+  /* ============================= HERO ============================= */
+  #hero{
+    min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) 0 60px;
+  }
+  #net{position:absolute;inset:0;z-index:-1;opacity:.85}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.78rem;
+    color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+    background:color-mix(in srgb,var(--accent) 7%,transparent);
+    padding:7px 14px;border-radius:999px;margin-bottom:22px;letter-spacing:.03em;
+  }
+  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}60%{box-shadow:0 0 0 8px transparent}}
+  h1.hero-name{
+    font-family:var(--head);font-weight:800;font-size:clamp(2.5rem,5.6vw,4.1rem);
+    line-height:1.06;letter-spacing:-.02em;margin-bottom:16px;
+  }
+  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .typer-line{
+    font-family:var(--mono);font-size:clamp(.95rem,1.8vw,1.18rem);color:var(--muted);
+    min-height:1.8em;margin-bottom:20px;
+  }
+  .typer-line .prompt{color:var(--accent-3)}
+  .typer-line .caret{display:inline-block;width:9px;background:var(--accent);margin-left:2px;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+  .hero-sub{color:var(--muted);max-width:56ch;font-size:1.02rem;margin-bottom:30px}
+  .hero-sub strong{color:var(--text);font-weight:600}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.92rem;
+    padding:13px 24px;border-radius:13px;transition:.25s;border:1px solid transparent;
+  }
+  .btn svg{width:17px;height:17px}
+  .btn-primary{background:var(--grad);color:var(--on-accent);box-shadow:0 10px 32px -10px var(--glow)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px color-mix(in srgb,var(--accent) 45%,transparent)}
+  .btn-ghost{border-color:var(--card-border);color:var(--text);background:var(--card)}
+  .btn-ghost:hover{border-color:var(--card-border-hover);transform:translateY(-2px)}
+  .social-row{display:flex;gap:11px;align-items:center}
+  .social-row a{
+    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+    border:1px solid var(--card-border);background:var(--card);color:var(--muted);transition:.25s;
+  }
+  .social-row a:hover{color:var(--accent);border-color:var(--card-border-hover);transform:translateY(-3px)}
+  .social-row svg{width:18px;height:18px}
+
+  /* terminal card */
+  .term{
+    border-radius:var(--r);border:1px solid var(--card-border);overflow:hidden;
+    background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);
+    box-shadow:var(--shadow);font-family:var(--mono);font-size:.8rem;
+    transform:perspective(1100px) rotateY(-4deg) rotateX(2deg);
+    transition:transform .5s ease;
+  }
+  .term:hover{transform:perspective(1100px) rotateY(0) rotateX(0)}
+  .term-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--card-border);background:rgba(36,56,44,.05)}
+  :root[data-theme="dark"] .term-bar{background:rgba(0,0,0,.22)}
+  .term-bar i{width:11px;height:11px;border-radius:50%}
+  .term-bar i:nth-child(1){background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+  .term-bar span{margin-left:8px;color:var(--faint);font-size:.72rem}
+  .term-body{padding:18px 20px 22px;min-height:285px;color:var(--muted);line-height:1.8}
+  .term-body .ln{display:block;white-space:pre-wrap;word-break:break-word}
+  .term-body .c-p{color:var(--accent-3)}
+  .term-body .c-cmd{color:var(--text)}
+  .term-body .c-ok{color:var(--accent)}
+  .term-body .c-key{color:var(--accent-2)}
+  .term-body .c-dim{color:var(--faint)}
+  .term-caret{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:-2px;animation:blink 1s step-end infinite}
+
+  /* stats band */
+  .stats{
+    margin-top:58px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  }
+  .stat{
+    text-align:center;padding:22px 10px;border-radius:var(--r);
+    border:1px solid var(--card-border);background:var(--card);backdrop-filter:blur(8px);
+    transition:.3s;
+  }
+  .stat:hover{border-color:var(--card-border-hover);transform:translateY(-4px)}
+  .stat b{font-family:var(--head);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{display:block;color:var(--muted);font-size:.8rem;margin-top:4px;letter-spacing:.02em}
+
+  .scroll-hint{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    color:var(--faint);font-size:.72rem;font-family:var(--mono);letter-spacing:.14em;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .scroll-hint .wheel{width:22px;height:36px;border:2px solid var(--faint);border-radius:12px;position:relative}
+  .scroll-hint .wheel::after{content:"";position:absolute;top:6px;left:50%;width:3px;height:7px;margin-left:-1.5px;border-radius:3px;background:var(--accent);animation:wheel 1.8s infinite}
+  @keyframes wheel{0%{opacity:1;transform:translateY(0)}70%{opacity:0;transform:translateY(12px)}100%{opacity:0}}
+
+  /* ============================= SECTION HEADS ============================= */
+  .sec-head{margin-bottom:52px}
+  .sec-tag{font-family:var(--mono);color:var(--accent);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+  .sec-tag::before{content:"";width:34px;height:1px;background:var(--accent)}
+  .sec-head h2{font-family:var(--head);font-weight:800;font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.02em;margin-top:10px}
+  .sec-head p{color:var(--muted);margin-top:10px;max-width:62ch}
+
+  /* reveal animation */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+
+  /* ============================= ABOUT ============================= */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  .pic-frame{position:relative;max-width:380px;margin:0 auto}
+  .pic-frame::before{
+    content:"";position:absolute;inset:-18px;border-radius:28px;z-index:-1;
+    background:conic-gradient(from 180deg,var(--accent),var(--accent-2),var(--accent-3),var(--accent));
+    filter:blur(42px);opacity:.3;animation:spinHue 10s linear infinite;
+  }
+  @keyframes spinHue{to{filter:blur(42px) hue-rotate(360deg)}}
+  .pic-frame img{border-radius:24px;border:1px solid var(--card-border);box-shadow:var(--shadow);aspect-ratio:4/4.6;object-fit:cover;object-position:top}
+  .pic-badge{
+    position:absolute;display:flex;align-items:center;gap:9px;
+    background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(10px);
+    border:1px solid var(--card-border);border-radius:14px;padding:10px 15px;
+    font-size:.8rem;font-weight:600;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite;
+  }
+  .pic-badge small{display:block;font-weight:400;color:var(--muted);font-size:.7rem}
+  .pic-badge.b1{top:16px;right:-26px}
+  .pic-badge.b2{bottom:28px;left:-30px;animation-delay:-2.5s}
+  .pic-badge .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+  .pic-badge .ic svg{width:17px;height:17px}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .about-txt p{color:var(--muted);margin-bottom:16px}
+  .about-txt p strong{color:var(--text)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+  .fact{
+    display:flex;gap:12px;align-items:center;padding:13px 15px;border-radius:14px;
+    border:1px solid var(--card-border);background:var(--card);font-size:.86rem;
+  }
+  .fact .ic{flex:none;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent-2) 14%,transparent);color:var(--accent-2)}
+  .fact .ic svg{width:17px;height:17px}
+  .fact small{display:block;color:var(--faint);font-size:.7rem;text-transform:uppercase;letter-spacing:.07em}
+  .fact b{font-weight:600}
+  .fact a{color:var(--text)}
+  .fact a:hover{color:var(--accent)}
+
+  /* ============================= RESEARCH ============================= */
+  #research{background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--bg-2) 70%,transparent) 18%,color-mix(in srgb,var(--bg-2) 70%,transparent) 82%,transparent)}
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+  .chip{
+    font-family:var(--mono);font-size:.78rem;padding:9px 18px;border-radius:999px;
+    border:1px solid var(--card-border);background:var(--card);color:var(--muted);transition:.25s;
+  }
+  .chip:hover{color:var(--text);border-color:var(--card-border-hover)}
+  .chip.on{background:var(--grad);color:var(--on-accent);border-color:transparent;font-weight:700}
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .proj{
+    position:relative;border-radius:var(--r);border:1px solid var(--card-border);
+    background:var(--card);backdrop-filter:blur(8px);padding:26px 24px 22px;
+    transition:transform .35s ease,border-color .35s,box-shadow .35s,opacity .35s;
+    display:flex;flex-direction:column;overflow:hidden;
+  }
+  .proj::before{
+    content:"";position:absolute;inset:0;opacity:0;transition:opacity .4s;pointer-events:none;
+    background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),var(--glow),transparent 65%);
+  }
+  .proj:hover{transform:translateY(-6px);border-color:var(--card-border-hover);box-shadow:var(--shadow)}
+  .proj:hover::before{opacity:1}
+  .proj.hide{opacity:0;transform:scale(.92);pointer-events:none;position:absolute;visibility:hidden}
+  .proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+  .proj-ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
+  .proj-ic svg{width:22px;height:22px}
+  .proj .status{
+    font-family:var(--mono);font-size:.64rem;padding:5px 10px;border-radius:999px;letter-spacing:.05em;
+    border:1px solid color-mix(in srgb,var(--accent-3) 45%,transparent);color:var(--accent-3);
+    background:color-mix(in srgb,var(--accent-3) 8%,transparent);white-space:nowrap;
+  }
+  .proj .status.ok{border-color:color-mix(in srgb,var(--accent) 45%,transparent);color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent)}
+  .proj h3{font-family:var(--head);font-size:1.12rem;font-weight:700;margin-bottom:9px}
+  .proj p{color:var(--muted);font-size:.87rem;flex:1}
+  .proj .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .proj .tags i{font-style:normal;font-family:var(--mono);font-size:.66rem;color:var(--accent-2);background:color-mix(in srgb,var(--accent-2) 10%,transparent);padding:4px 9px;border-radius:7px}
+
+  /* ============================= PUBLICATIONS ============================= */
+  .pub-toolbar{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;margin-bottom:30px}
+  .pub-tabs{display:flex;gap:8px}
+  .pub-search{
+    flex:1;min-width:230px;max-width:360px;display:flex;align-items:center;gap:10px;
+    border:1px solid var(--card-border);background:var(--card);border-radius:13px;padding:11px 16px;
+  }
+  .pub-search svg{width:16px;height:16px;color:var(--faint);flex:none}
+  .pub-search input{background:none;border:none;outline:none;color:var(--text);font-family:var(--body);font-size:.88rem;width:100%}
+  .pub-search input::placeholder{color:var(--faint)}
+  .metrics-strip{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:34px;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+  .metrics-strip b{color:var(--accent);font-size:1.05rem;margin-right:6px}
+  .pub-list{display:flex;flex-direction:column;gap:14px}
+  .pub{
+    display:flex;gap:20px;align-items:flex-start;padding:20px 22px;border-radius:16px;
+    border:1px solid var(--card-border);background:var(--card);transition:.3s;
+  }
+  .pub:hover{border-color:var(--card-border-hover);transform:translateX(6px)}
+  .pub.hide{display:none}
+  .pub-num{
+    flex:none;font-family:var(--mono);font-weight:700;font-size:.78rem;color:var(--accent);
+    border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:10px;
+    width:42px;height:42px;display:grid;place-items:center;
+    background:color-mix(in srgb,var(--accent) 7%,transparent);
+  }
+  .pub h4{font-size:.98rem;font-weight:600;line-height:1.45}
+  .pub h4 a{color:var(--text)}
+  .pub h4 a:hover{color:var(--accent)}
+  .pub .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px;align-items:center}
+  .pub .venue{font-size:.78rem;color:var(--muted);font-style:italic}
+  .pub .yr{font-family:var(--mono);font-size:.66rem;color:var(--accent-2);border:1px solid color-mix(in srgb,var(--accent-2) 40%,transparent);padding:3px 9px;border-radius:999px}
+  .pub .link-out{font-family:var(--mono);font-size:.66rem;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);padding:3px 9px;border-radius:999px;display:inline-flex;gap:5px;align-items:center}
+  .pub .link-out:hover{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  .pub .authors{font-size:.76rem;color:var(--faint);margin-top:5px}
+  .pub .authors b{color:var(--muted);font-weight:600}
+  .no-results{display:none;text-align:center;color:var(--faint);font-family:var(--mono);padding:40px 0;font-size:.85rem}
+
+  /* ============================= EXPERIENCE ============================= */
+  #experience{background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--bg-2) 70%,transparent) 18%,color-mix(in srgb,var(--bg-2) 70%,transparent) 82%,transparent)}
+  .timeline{position:relative;margin-left:8px}
+  .timeline::before{
+    content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2) 55%,transparent);opacity:.4;
+  }
+  .titem{position:relative;padding:0 0 42px 48px}
+  .titem:last-child{padding-bottom:0}
+  .titem::before{
+    content:"";position:absolute;left:3px;top:6px;width:16px;height:16px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 14%,transparent);
+  }
+  .titem.ind::before{border-color:var(--accent-2);box-shadow:0 0 0 5px color-mix(in srgb,var(--accent-2) 14%,transparent)}
+  .titem .when{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.05em;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .titem.ind .when{color:var(--accent-2)}
+  .titem .kind{font-size:.6rem;border:1px solid currentColor;border-radius:999px;padding:2px 9px;opacity:.85}
+  .titem h3{font-family:var(--head);font-size:1.1rem;font-weight:700}
+  .titem .org{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+  .titem .org a{color:var(--muted)}
+  .titem .org a:hover{color:var(--accent)}
+  .titem ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .titem li{color:var(--muted);font-size:.87rem;padding-left:20px;position:relative}
+  .titem li::before{content:"▹";position:absolute;left:0;color:var(--accent);font-size:.8rem}
+  .titem.ind li::before{color:var(--accent-2)}
+  .titem li b{color:var(--text);font-weight:600}
+
+  /* ============================= SKILLS ============================= */
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .skill-card{
+    border-radius:var(--r);border:1px solid var(--card-border);background:var(--card);
+    padding:24px 22px;transition:.3s;
+  }
+  .skill-card:hover{border-color:var(--card-border-hover);transform:translateY(-4px);box-shadow:var(--shadow)}
+  .skill-card .top{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+  .skill-card .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .skill-card:nth-child(3n+2) .ic{color:var(--accent-2);background:color-mix(in srgb,var(--accent-2) 12%,transparent)}
+  .skill-card:nth-child(3n) .ic{color:var(--accent-3);background:color-mix(in srgb,var(--accent-3) 12%,transparent)}
+  .skill-card .ic svg{width:20px;height:20px}
+  .skill-card h3{font-family:var(--head);font-size:1rem;font-weight:700}
+  .skill-card .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .skill-card .chips i{
+    font-style:normal;font-size:.75rem;color:var(--muted);border:1px solid var(--card-border);
+    padding:5px 11px;border-radius:9px;transition:.2s;background:color-mix(in srgb,var(--surface) 55%,transparent);
+  }
+  .skill-card .chips i:hover{color:var(--accent);border-color:var(--card-border-hover);transform:translateY(-2px)}
+
+  /* ============================= EDUCATION ============================= */
+  .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .edu{
+    border-radius:var(--r);border:1px solid var(--card-border);background:var(--card);
+    padding:28px 24px;position:relative;overflow:hidden;transition:.3s;
+  }
+  .edu::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:.8}
+  .edu:hover{transform:translateY(-5px);border-color:var(--card-border-hover);box-shadow:var(--shadow)}
+  .edu .deg{font-family:var(--mono);font-size:.68rem;color:var(--accent);letter-spacing:.09em;text-transform:uppercase}
+  .edu h3{font-family:var(--head);font-size:1.08rem;font-weight:700;margin:8px 0 4px}
+  .edu .where{color:var(--muted);font-size:.84rem}
+  .edu .row{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:.78rem;color:var(--faint);font-family:var(--mono)}
+  .edu .gpa{color:var(--text);font-weight:700;background:color-mix(in srgb,var(--accent) 12%,transparent);border-radius:8px;padding:3px 10px;color:var(--accent)}
+  .edu .note{margin-top:12px;font-size:.8rem;color:var(--muted)}
+  .edu .note a{font-weight:600}
+
+  /* ============================= HONORS ============================= */
+  .honor-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .honor{
+    display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:16px;
+    border:1px solid var(--card-border);background:var(--card);transition:.3s;
+  }
+  .honor:hover{border-color:var(--card-border-hover);transform:translateY(-3px)}
+  .honor .ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent-3) 13%,transparent);color:var(--accent-3)}
+  .honor .ic svg{width:20px;height:20px}
+  .honor h4{font-size:.95rem;font-weight:600}
+  .honor p{color:var(--muted);font-size:.82rem;margin-top:3px}
+
+  /* ============================= CONTACT ============================= */
+  .contact-card{
+    border-radius:26px;border:1px solid var(--card-border);
+    background:
+      radial-gradient(900px circle at 12% -10%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 55%),
+      radial-gradient(900px circle at 95% 120%,color-mix(in srgb,var(--accent-2) 10%,transparent),transparent 55%),
+      var(--surface);
+    padding:clamp(34px,6vw,70px);text-align:center;box-shadow:var(--shadow);
+  }
+  .contact-card h2{font-family:var(--head);font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+  .contact-card>p{color:var(--muted);max-width:56ch;margin:0 auto 32px}
+  .contact-rows{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .c-pill{
+    display:inline-flex;align-items:center;gap:10px;border:1px solid var(--card-border);
+    background:var(--card);border-radius:13px;padding:12px 20px;color:var(--text);
+    font-size:.88rem;font-weight:500;transition:.25s;font-family:var(--mono);
+  }
+  .c-pill:hover{border-color:var(--card-border-hover);transform:translateY(-2px);color:var(--accent)}
+  .c-pill svg{width:16px;height:16px;color:var(--accent)}
+  #copyEmail{position:relative}
+  #copyEmail .tip{
+    position:absolute;top:-34px;left:50%;transform:translateX(-50%) scale(.9);opacity:0;
+    background:var(--accent);color:var(--on-accent);font-size:.68rem;font-weight:700;border-radius:7px;
+    padding:4px 10px;transition:.25s;pointer-events:none;white-space:nowrap;
+  }
+  #copyEmail.copied .tip{opacity:1;transform:translateX(-50%) scale(1)}
+
+  footer{padding:36px 0 42px;text-align:center;color:var(--faint);font-size:.8rem}
+  footer .ft-logo{font-family:var(--mono);color:var(--muted);margin-bottom:8px}
+  footer a{color:var(--muted)}
+  footer a:hover{color:var(--accent)}
+
+  #toTop{
+    position:fixed;right:22px;bottom:22px;z-index:900;width:46px;height:46px;border-radius:14px;
+    border:1px solid var(--card-border);background:color-mix(in srgb,var(--surface) 90%,transparent);
+    backdrop-filter:blur(10px);color:var(--accent);display:grid;place-items:center;
+    opacity:0;pointer-events:none;transition:.3s;box-shadow:var(--shadow);
+  }
+  #toTop.show{opacity:1;pointer-events:auto}
+  #toTop:hover{transform:translateY(-3px);border-color:var(--card-border-hover)}
+
+  /* ============================= RESPONSIVE ============================= */
+  @media(max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .term{max-width:560px;transform:none}
+    .proj-grid,.skill-grid,.edu-grid{grid-template-columns:repeat(2,1fr)}
+    .about-grid{grid-template-columns:1fr;gap:70px}
+    .pic-frame{max-width:330px}
+  }
+  @media(max-width:700px){
+    .nav-links{display:none}
+    #hamburger{display:grid}
+    section{padding:72px 0}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .proj-grid,.skill-grid,.edu-grid,.honor-grid,.facts{grid-template-columns:1fr}
+    .pic-badge.b1{right:-8px}
+    .pic-badge.b2{left:-8px}
+    .pub{flex-direction:column;gap:12px}
+    .scroll-hint{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none}
+  }
+  </style>
 </head>
-
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+<div class="mesh" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
+<!-- ============================= NAV ============================= -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#hero"><span class="dot"></span>~/<span class="path">shahidur</span><span style="color:var(--faint)">&nbsp;$</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <svg id="iconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="iconSun" style="display:none" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn" id="hamburger" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a>
+  <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+</div>
 
-      <div class="profile">
-        <img src="assets/img/new.jpg" alt="" class="img-fluid rounded-circle">
-        <h6 class="text-light"><a href="index.html">Md Shahidur Rahaman</a></h6>
-        <div class="social-links mt-3 text-center">
-          <a href="https://twitter.com/MdShahi43025814" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://github.com/Shahidur60" class="GitHub"><i class="bi bi-github"></i></a>
-          <a href="https://www.linkedin.com/in/md-shahidur-rahaman-02443912a/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+<!-- ============================= HERO ============================= -->
+<header id="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap" style="width:100%">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow"><span class="pulse"></span>PhD Candidate · Texas A&amp;M University · GPA 4.0</span>
+        <h1 class="hero-name">Md Shahidur<br><span class="grad">Rahaman</span></h1>
+        <div class="typer-line"><span class="prompt">&gt;_</span> <span id="typer"></span><span class="caret">&nbsp;</span></div>
+        <p class="hero-sub">
+          I break and then rebuild the trust layer of secure communication — researching
+          <strong>end-to-end encryption</strong>, <strong>authentication ceremonies</strong>, and
+          <strong>ML/LLM security</strong> at the <a href="https://spies.engr.tamu.edu/" target="_blank" rel="noopener">SPIES Lab</a>,
+          advised by <a href="https://nsaxena.engr.tamu.edu/" target="_blank" rel="noopener">Prof. Nitesh Saxena</a>.
+          Backed by 4 years of industry engineering across Germany and Bangladesh.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#research">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Explore Research
+          </a>
+          <a class="btn btn-ghost" href="Resume.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+        </div>
+        <div class="social-row">
+          <a href="https://github.com/Shahidur60" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.75 0c2.19-1.49 3.15-1.18 3.15-1.18.63 1.58.23 2.75.12 3.04.74.81 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.2.66.8.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/md-shahidur-rahaman-02443912a/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14.8H.2V8zm7.6 0h4.4v2h.06c.61-1.16 2.11-2.38 4.35-2.38 4.65 0 5.51 3.06 5.51 7.04v8.14h-4.6v-7.22c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.88-2.77 3.81v7.35H7.8V8z"/></svg>
+          </a>
+          <a href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Md+Shahidur+Rahaman" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L0 9.5l4.84 2.97v5.7L12 22l7.16-3.83v-5.7l2.02-1.24V18h1.64V9.5L12 2zm0 2.08L19.4 9 12 13.08 4.6 9 12 4.08zm5.52 8.39v4.3L12 19.92l-5.52-3.15v-4.3L12 15.92l5.52-3.45z"/></svg>
+          </a>
+          <a href="mailto:mdshahidur_rahaman@tamu.edu" aria-label="Email" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          </a>
         </div>
       </div>
 
-      <nav id="navbar" class="nav-menu navbar">
+      <div class="term" id="termCard">
+        <div class="term-bar"><i></i><i></i><i></i><span>shahidur@spies-lab: ~/research</span></div>
+        <div class="term-body" id="termBody"></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b class="count" data-to="13">0</b><span>Peer-Reviewed Publications</span></div>
+      <div class="stat"><b class="count" data-to="217">0</b><span>Citations · Google Scholar</span></div>
+      <div class="stat"><b class="count" data-to="6">0</b><span>h-index</span></div>
+      <div class="stat"><b class="count" data-to="4" data-suffix="+">0</b><span>Years Industry Experience</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="wheel"></div>SCROLL</div>
+</header>
+
+<main>
+
+<!-- ============================= ABOUT ============================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">01 · whoami</span>
+      <h2>About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="pic-frame rv">
+        <img src="assets/img/new.jpg" alt="Md Shahidur Rahaman" loading="lazy">
+        <div class="pic-badge b1">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <span>E2EE Security<small>SPIES Lab · TAMU</small></span>
+        </div>
+        <div class="pic-badge b2">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+          <span>13 Publications<small>217 citations</small></span>
+        </div>
+      </div>
+      <div class="about-txt rv">
+        <p>
+          I'm a <strong>PhD Candidate in Computer Science</strong> at Texas A&amp;M University (GPA 4.0), working with
+          <strong>Prof. Nitesh Saxena</strong> in the SPIES Lab. My research asks a simple, uncomfortable question:
+          <strong>when end-to-end encryption meets real humans and real AI systems, where does trust actually break?</strong>
+        </p>
+        <p>
+          I design and run IRB-approved user studies, build attack and defense prototypes — from
+          <strong>device-linking attacks with 90%+ success rates</strong> to <strong>Passkey-Anchored Linking (PAL)</strong>,
+          a FIDO2/WebAuthn defense — and develop LLM-based evaluation pipelines that probe what AI assistants can leak
+          from encrypted conversations.
+        </p>
+        <p>
+          Before research, I spent four years shipping production software: OAuth2/SAML systems in Germany,
+          a debit-card API serving 3M+ banking customers in Bangladesh, and secure ASP.NET platforms for 100K+ users.
+        </p>
+        <div class="facts">
+          <div class="fact">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span><small>Location</small><b>College Station, TX</b></span>
+          </div>
+          <div class="fact">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <span><small>Email</small><b><a href="mailto:mdshahidur_rahaman@tamu.edu">mdshahidur_rahaman@tamu.edu</a></b></span>
+          </div>
+          <div class="fact">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+            <span><small>Advisor</small><b><a href="https://nsaxena.engr.tamu.edu/" target="_blank" rel="noopener">Prof. Nitesh Saxena</a></b></span>
+          </div>
+          <div class="fact">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+            <span><small>Lab</small><b><a href="https://spies.engr.tamu.edu/" target="_blank" rel="noopener">SPIES Lab @ TAMU</a></b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= RESEARCH ============================= -->
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">02 · ls ./projects</span>
+      <h2>Research &amp; Projects</h2>
+      <p>Attack discovery, defense design, and AI-security systems — each project pairs a threat model with real users and real measurements.</p>
+    </div>
+    <div class="filters rv" id="projFilters">
+      <button class="chip on" data-f="all">All</button>
+      <button class="chip" data-f="attack">⚔ Attacks</button>
+      <button class="chip" data-f="defense">🛡 Defenses</button>
+      <button class="chip" data-f="ai">🧠 AI / LLM</button>
+      <button class="chip" data-f="sys">☁ Systems</button>
+    </div>
+    <div class="proj-grid" id="projGrid">
+
+      <article class="proj rv" data-cat="ai attack">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></span>
+          <span class="status">ONGOING</span>
+        </div>
+        <h3>AI Leakage Study</h3>
+        <p>Can an LLM assistant that sees only one side of an E2EE group chat infer messages it was never given? Targeted-query attack pipeline (Llama-3.1-8B attacker, Qwen2.5-7B judge) evaluated on Supreme Court transcripts and Reddit CMV threads.</p>
+        <div class="tags"><i>LLM Privacy</i><i>E2EE</i><i>LLM-as-Judge</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="attack">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/><path d="m17 3 4 4M21 3l-4 4"/></svg></span>
+          <span class="status ok">ISC 2026</span>
+        </div>
+        <h3>SocFakeID</h3>
+        <p>Stress test of social-media-based authentication ceremonies in E2EE messaging — showing ephemeral fake accounts can quietly compromise identity verification.</p>
+        <div class="tags"><i>Auth Ceremonies</i><i>E2EE</i><i>User Study</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="defense">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <span class="status ok">DEFENSE</span>
+        </div>
+        <h3>PAL — Passkey-Anchored Linking</h3>
+        <p>FIDO2/WebAuthn device enrollment replacing replayable QR bearer tokens with hardware-backed passkeys, a keyed &amp; sealed BLE proximity channel, and mutual authentication.</p>
+        <div class="tags"><i>FIDO2</i><i>WebAuthn</i><i>BLE</i><i>Device Linking</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="attack">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M8 5a7 7 0 1 0 8 0"/><path d="M2 18c2-2 4 2 6 0s4 2 6 0 4 2 6 0"/></svg></span>
+          <span class="status">UNDER REVIEW</span>
+        </div>
+        <h3>Voice-Zeus</h3>
+        <p>Ceremony-level impersonation attack on Zoom E2EE via voice reordering — MCD&nbsp;=&nbsp;0 by construction, invisible to synthesis-based deepfake classifiers. Confirmed in an IRB-approved 300-trial study (76.9% success).</p>
+        <div class="tags"><i>Zoom E2EE</i><i>Voice</i><i>User Study</i></div>
+      </article>
+
+
+      <article class="proj rv" data-cat="defense sys">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l4 3V8l4 3V8l4 3V5l6 4v12z"/><path d="M3 21h18"/></svg></span>
+          <span class="status">DARPA D2P2</span>
+        </div>
+        <h3>FORTRESS</h3>
+        <p>Multi-boundary trust framework for E2EE messaging covering Human&ndash;Application, Application&ndash;Device/Network, and Application&ndash;Service surfaces. Submitted as a DARPA Direct-to-Phase-II proposal.</p>
+        <div class="tags"><i>Threat Modeling</i><i>Trust Boundaries</i><i>E2EE</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="defense">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.5 9.5C7.5 19.5 4 17 4 12V6l8-3 8 3z"/></svg></span>
+          <span class="status">PROTOCOL</span>
+        </div>
+        <h3>CFA &amp; SASLinker</h3>
+        <p>Ceremony-First Admission binds human identity verification to cryptographic group admission; SASLinker is an E2EE device-linking prototype using Short Authentication Strings.</p>
+        <div class="tags"><i>SAS</i><i>Group Messaging</i><i>Device Linking</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="ai">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-2 7 4 4 0 0 0 2 7 4 4 0 0 0 8 0 4 4 0 0 0 2-7 4 4 0 0 0-2-7 4 4 0 0 0-4-4z"/><path d="M12 6v12"/></svg></span>
+          <span class="status ok">0.9958 AUC</span>
+        </div>
+        <h3>SIVAI</h3>
+        <p>Hybrid agentic AI system (XGBoost + GPT-4) for social identity verification, reaching 0.9958 AUC and 95.6% accuracy across 2,576 real-world accounts.</p>
+        <div class="tags"><i>XGBoost</i><i>GPT-4</i><i>Agentic AI</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="ai sys">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></span>
+          <span class="status">FRAMEWORK</span>
+        </div>
+        <h3>EPAS</h3>
+        <p>A secure LLM execution framework with network isolation, memory-integrity validation, and policy enforcement to defend against inference-layer attacks.</p>
+        <div class="tags"><i>LLM Security</i><i>Isolation</i><i>Policy</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="sys">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+          <span class="status">OPEN SOURCE</span>
+        </div>
+        <h3>Cloudalyze</h3>
+        <p>Static/dynamic analysis pipeline for cloud-native security research — mapping access-control and configuration weaknesses across microservice architectures.</p>
+        <div class="tags"><i>Cloud-Native</i><i>Static Analysis</i><i>Microservices</i></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================= PUBLICATIONS ============================= -->
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">03 · cat ./publications</span>
+      <h2>Publications</h2>
+      <p>13 peer-reviewed papers and 3 under review, spanning E2EE attacks &amp; defenses, AI-driven identity verification, cloud-native security, and multimodal ML.</p>
+    </div>
+
+    <div class="metrics-strip rv">
+      <span><b>217</b>Citations</span>
+      <span><b>6</b>h-index</span>
+      <span><b>5</b>i10-index</span>
+      <span><b>13</b>Published</span>
+      <span><b>3</b>Under Review</span>
+    </div>
+
+    <div class="pub-toolbar rv">
+      <div class="pub-tabs">
+        <button class="chip on" data-pf="all">All</button>
+        <button class="chip" data-pf="pub">Published</button>
+        <button class="chip" data-pf="review">Under Review</button>
+      </div>
+      <label class="pub-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="pubSearch" placeholder="Search title, venue, keyword…" aria-label="Search publications">
+      </label>
+    </div>
+
+    <div class="pub-list" id="pubList"></div>
+    <div class="no-results" id="pubEmpty">// no publications match that query</div>
+  </div>
+</section>
+
+<!-- ============================= EXPERIENCE ============================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">04 · git log --experience</span>
+      <h2>Experience</h2>
+      <p>From production banking and enterprise systems to full-time security research.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="titem rv">
+        <div class="when">Jan 2024 — Present <span class="kind">Research</span></div>
+        <h3>Graduate Research Assistant</h3>
+        <div class="org"><a href="https://spies.engr.tamu.edu/" target="_blank" rel="noopener">Texas A&amp;M University · SPIES Lab</a> · College Station, TX</div>
         <ul>
-          <!-- <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li> -->
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#interest" class="nav-link scrollto"><i class="bi bi-file-check"></i> <span>Interest</span></a></li>
-          <li><a href="#education" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Education</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Experience</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bi bi-journal-check"></i> <span>Publications</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li>Stress-tested social-media authentication ceremonies in E2EE messaging, showing <b>ephemeral fake accounts compromise identity verification</b> — accepted at ISC 2026.</li>
+          <li>Leading a study of AI-mediated conversational leakage with a targeted-query attack pipeline (<b>Llama-3.1-8B</b> attacker, <b>Qwen2.5-7B</b> judge) on Supreme Court transcripts and Reddit CMV threads.</li>
+          <li>Conducted E2EE device-linking user studies achieving <b>over 90% attacker success</b> across 30 participants under live conditions.</li>
+          <li>Built <b>Passkey-Anchored Linking (PAL)</b>, a FIDO2/WebAuthn defense with a keyed, sealed BLE proximity channel and mutual authentication.</li>
+          <li>Developed <b>Voice-Zeus</b>, a ceremony-level impersonation attack on Zoom E2EE confirmed in a 300-trial IRB study (76.9% success), plus <b>SIVAI</b> (0.9958 AUC) and <b>EPAS</b>, a secure LLM execution framework.</li>
         </ul>
-      </nav><!-- .nav-menu -->
+      </div>
+
+      <div class="titem rv">
+        <div class="when">Jan 2023 — Dec 2023 <span class="kind">Research</span></div>
+        <h3>Graduate Research Assistant</h3>
+        <div class="org"><a href="https://www.baylor.edu/" target="_blank" rel="noopener">Baylor University</a> · Waco, TX</div>
+        <ul>
+          <li>Fine-tuned LLaMA on <b>50,000 network packet traces</b> for automated anomaly detection, improving accuracy <b>18% over baseline</b>.</li>
+          <li>Optimized preprocessing pipelines, cutting data-handling time from 3.5h to 1.2h (<b>65% faster</b>).</li>
+          <li>Directed a cybersecurity education project for <b>110+ students</b>, improving secure-coding performance by 25%.</li>
+        </ul>
+      </div>
+
+      <div class="titem rv">
+        <div class="when">Aug 2021 — Dec 2022 <span class="kind">Teaching</span></div>
+        <h3>Graduate Teaching Assistant</h3>
+        <div class="org"><a href="https://www.baylor.edu/" target="_blank" rel="noopener">Baylor University</a> · Waco, TX</div>
+        <ul>
+          <li>Managed 12 software-engineering lab projects (<b>72 students</b>) as Scrum Master, applying Agile methodologies.</li>
+          <li>Mentored students in lab sessions, providing technical support and fostering growth in software engineering.</li>
+        </ul>
+      </div>
+
+      <div class="titem ind rv">
+        <div class="when">Dec 2020 — Jul 2021 <span class="kind">Industry</span></div>
+        <h3>Software Engineer</h3>
+        <div class="org"><a href="https://www.basis-europe.eu/en/" target="_blank" rel="noopener">BASIS Europe GmbH</a> · Germany</div>
+        <ul>
+          <li>Implemented <b>OAuth2/SAML</b> authentication for an enterprise car-management system, meeting EU compliance and cutting onboarding friction.</li>
+          <li>Automated onboarding pipelines, reducing manual work <b>53%</b> and enabling scale to thousands of clients.</li>
+          <li>Deployed containerized microservices (<b>Docker/Kubernetes</b>) and integrated end-to-end encrypted APIs across teams.</li>
+        </ul>
+      </div>
+
+      <div class="titem ind rv">
+        <div class="when">Mar 2019 — Nov 2020 <span class="kind">Industry</span></div>
+        <h3>Senior Officer (Software)</h3>
+        <div class="org"><a href="https://www.dutchbanglabank.com/" target="_blank" rel="noopener">Dutch Bangla Bank</a> · Bangladesh</div>
+        <ul>
+          <li>Developed a debit-card API serving <b>3M+ customers</b>, reducing latency by 20%.</li>
+          <li>Led migration from <b>SOAP to REST</b>, modernizing infrastructure and lowering maintenance cost.</li>
+          <li>Enhanced fraud-detection modules with real-time monitoring and logging; benchmarked transaction systems at scale.</li>
+        </ul>
+      </div>
+
+      <div class="titem ind rv">
+        <div class="when">Mar 2018 — Feb 2019 <span class="kind">Industry</span></div>
+        <h3>Software Engineer</h3>
+        <div class="org"><a href="https://www.southtechgroup.com/" target="_blank" rel="noopener">Southtech Ltd.</a> · Bangladesh</div>
+        <ul>
+          <li>Designed <b>ASP.NET Core</b> systems for Ascend Finance serving <b>100K+ users</b>.</li>
+          <li>Refactored scheduling algorithms for <b>65% efficiency gains</b>; implemented RBAC and OWASP-aligned secure APIs.</li>
+        </ul>
+      </div>
+
     </div>
-  </header><!-- End Header -->
+  </div>
+</section>
 
-  <!-- ======= Hero Section ======= -->
-  <!-- <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Md Shahidur Rahaman</h1>
-      <p>I'm <span class="typed" data-typed-items="Researcher, Software Engineer, Security Expert, Java Enthusiast"></span></p>
+<!-- ============================= SKILLS ============================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">05 · ./skills --list</span>
+      <h2>Technical Arsenal</h2>
+      <p>The tools I use to break systems, prove the breaks with real users, and build the defenses.</p>
     </div>
-  </section> -->
-  
-  <!-- End Hero -->
+    <div class="skill-grid">
 
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <p class="mb-5">
-            Greetings! I'm Md Shahidur Rahaman, currently embarking on an exciting journey as a PhD student in <a href="https://www.tamu.edu/">Texas A&M University</a> , College Station with a deep-rooted passion for cybersecurity and software security. I recently graduated with a Master's of Science in Computer Science from Baylor University, where I not only advanced my technical skills but also developed a keen interest in the intricate aspects of software and cyber safety.
-
-            <br><br>
-
-            I am currently under the mentorship of <a href="https://nsaxena.engr.tamu.edu/"> Nitesh Saxena </a> at the <a href="https://spies.engr.tamu.edu/"> SPIES research lab</a>. My present research focus is at the crossroads of Cybersecurity, Software Engineering. I am also interested in an interdisciplinary area that leverages machine learning (ML) techniques to improve cybersecurity measures and apply cybersecurity principles to safeguard ML systems.
-         </p>
+      <div class="skill-card rv">
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+          <h3>Languages</h3>
         </div>
-
-        <div class="section-title" id="interest">
-          <h2>Interest</h2>
-          <p class="mb-5">
-            I am currently focused on the dynamic intersection of Cybersecurity, Software Engineering, Software Security, and Machine Learning. My research aims to:
-
-            <ul>
-              <li>Cybersecurity: Develop innovative strategies for advanced threat detection and mitigation, enhancing digital system defenses against emerging cyber threats.</li>
-              <li>Software Engineering: Explore efficient, reliable software development methodologies, integrating machine learning to improve the software development life cycle.</li>
-              <li>Software Security: Investigate secure coding practices, creating frameworks for security testing to build resilient software systems.</li>
-              <li>Machine Learning: Apply machine learning algorithms in cybersecurity for threat and anomaly detection, while addressing AI ethical challenges, biases, and privacy concerns.</li>
-            </ul>
-            My goal is to contribute towards a safer, more secure digital environment through the integration of these key disciplines.
-          </p>
-
-        </div>
-
-        <div class="section-title" id="interest">
-          <h2>Current Projects</h2>
-          <p class="mb-5">
-            <ul>
-              <li> <h4> E2EE Authentication with SAS Protocols: </h4>I am working on improving End-to-End Encryption (E2EE) authentication mechanisms by leveraging Short Authentication String (SAS) protocols in applications like WhatsApp, Telegram, and WeChat. This project focuses on securing device linking processes, which are often vulnerable to various attacks. My approach aims to enhance the verification phase to prevent potential security breaches. While the solution emphasizes preventing QR code-based exploits and other authentication vulnerabilities, further details on the attack models and verification methods provide a deeper understanding of the project. </li>
-              <li> <h4> Device Fingerprinting and Privacy in AR/VR Environments </h4> This project explores how machine learning can be used to identify devices through motion sensor data in Augmented Reality (AR) and Virtual Reality (VR) systems. While these fingerprinting techniques offer potential benefits for device authentication, they raise significant privacy concerns, particularly regarding user tracking and identity exposure. Understanding how device characteristics and user interactions contribute to fingerprinting reveals the broader implications of this research.</li>
-              <li> <h4> Privacy Risks in AI Assistants on E2EE Platforms </h4>This research examines how AI assistants functioning within E2EE platforms might unintentionally expose sensitive information despite the presence of encryption. The focus is on understanding how data processing and response generation by AI systems could lead to privacy leaks.</li>  
-            </ul>
-           
-          </p>
-
-        </div>
-
+        <div class="chips"><i>Python</i><i>Java</i><i>C++</i><i>JavaScript</i><i>TypeScript</i><i>SQL</i><i>Oracle</i><i>MSSQL</i><i>MongoDB</i></div>
       </div>
-    </section><!-- End About Section -->
 
-    <!-- ======= Facts Section ======= -->
-    <section id="education" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Education</h2>
+      <div class="skill-card rv">
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></span>
+          <h3>Frameworks</h3>
         </div>
-
-        <div class="row">
-
-          <div class="col-lg-12">
-            <h3>Texas A&M University</h3>
-            <span class="text-primary">January 2024 - Present</span>
-              <div>PhD</div>
-              
-              <div>Computer Science</div>
-              
-              <p>CGPA: 4.00</p>
-          </div>
-
-          <div class="col-lg-12">
-            <h3>Baylor University</h3>
-            <span class="text-primary">August 2021 - December 2023</span>
-              <div>Masters of Science</div>
-              
-              <div>Computer Science</div>
-              
-              <p>CGPA: 3.51</p>
-          </div>
-
-          <div class="col-lg-12">
-            <h3>Military Institute of Science and Technology</h3>
-            <span class="text-primary">January 2014 - January 2018</span>
-              <div>Bachelors of Science</div>
-              
-              <div>Computer Science and Engineering</div>
-              
-              <p>CGPA: 3.54</p>
-          </div>
-
-
-        </div>
-
+        <div class="chips"><i>PyTorch</i><i>TensorFlow</i><i>scikit-learn</i><i>Spring Boot</i><i>Spring Cloud</i><i>ASP.NET Core</i><i>Flutter</i></div>
       </div>
-    </section>
-    
-    
-    <!-- End Facts Section -->
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
+      <div class="skill-card rv">
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <h3>Security</h3>
         </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">Java <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">C++ <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="90"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Spring Cloud, MVC<i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">Containerization: Docker, AWS, Kubernetes <i class="val">85%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Apache Kafka, RabbitMQ <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">SQL<i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Jenkins, GitLab CI/CD<i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
+        <div class="chips"><i>End-to-End Encryption</i><i>Auth Ceremonies</i><i>Device Linking</i><i>SAS Protocols</i><i>WebAuthn/FIDO2</i><i>OAuth2</i><i>TLS</i><i>Threat Modeling</i><i>OWASP</i><i>Adversarial ML</i><i>LLM Security</i><i>Prompt Injection</i></div>
       </div>
-    </section><!-- End Skills Section -->
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Experience</h2>
-        
+      <div class="skill-card rv">
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-2 7 4 4 0 0 0 2 7 4 4 0 0 0 8 0 4 4 0 0 0 2-7 4 4 0 0 0-2-7 4 4 0 0 0-4-4z"/></svg></span>
+          <h3>ML / AI</h3>
         </div>
-
-        <div class="row">
-          
-          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Academic Experience</h3>
-            <div class="resume-item">
-              <h4>Graduate Research Assistant</h4>
-              <h5>January 2023 - December 2023</h5>
-              <p><em><a href="https://www.baylor.edu/">Baylor University</a> </em></p>
-              <ul>
-                <li>Pioneered funded project, enhancing cybersecurity materials for high school students benefiting 110 students.</li>
-                <li>Employing advanced penetration testing methodologies, cultivated a remarkable 25% surge in the acquisition of vulnerability identification skills.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Graduate Teaching Assistant</h4>
-              <h5>August 2021 - December 2022</h5>
-              <p><em><a href="https://www.baylor.edu/">Baylor University</a> </em></p>
-              <ul>
-                <li>Actively managed 12 software engineering lab projects as a Scrum Master for 72 students, promoting Agile methodologies and facilitating collaboration.</li>
-                <li>Mentored students in lab sessions, providing technical support and encouraging growth in software engineering skills.</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Software Engineer</h4>
-              <h5>December 2020 - July 2021</h5>
-              <p><em><a href="https://www.basis-europe.eu/en/"> BASIS Europe Distribution GmbH</a> </em></p>
-              <ul>
-                <li>Spearheaded full-stack software development of an in-house project using BBj technology, achieving a 40% processing time reduction.</li>
-                <li>Implemented OAuth2 and SAML authentication in Car Management System with BBj, resulting in a 70% decrease in unauthorized access incidents.</li>
-                <li>Evaluated executable JAR development for client-based project, achieving 15% improved system responsiveness and 25% error rate reduction.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Senior Officer, IT</h4>
-              <h5>March 2019 - November 2020</h5>
-              <p><em><a href="https://www.dutchbanglabank.com/"> DUTCH BANGLA BANK LIMITED</a> </em></p>
-              <ul>
-                <li>Architected and executed a robust Debit Card management solution through a Restful API, seamlessly empowering operations for a vast user base surpassing 3 million.</li>
-                <li>Directed the seamless execution of SOAP to Restful migration, boosting API response speed by 40% and lowering downtime by 20%.</li>
-                <li>Developed a potent Servlet-based Credit Card processing system, optimizing operations for 200,000 users.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Software Engineer</h4>
-              <h5>March 2018 - February 2019</h5>
-              <p><em><a href="https://www.southtechgroup.com/"> SOUTHTECH Limited</a></em></p>
-              <ul>
-                <li>Managed “Magic Doors” and “ReportSp” ASP.NET Core projects, achieving 25% faster responses and 20% higher satisfaction for 100,000 users.</li>
-                <li>Optimized ICDDR, B’s fleet delivery, improving efficiency by 40% and on-time deliveries by 20% for 500 vehicles.</li>
-                <li>Accelerated cross-functional teams for requirements gathering, defining project scope, and ensuring timely delivery.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+        <div class="chips"><i>LLM Evaluation</i><i>Red-Teaming</i><i>Llama</i><i>Qwen</i><i>LLM-as-Judge</i><i>NLP</i><i>Model Robustness</i><i>Trustworthy AI</i><i>CNN</i><i>XGBoost</i><i>LightGBM</i></div>
       </div>
-    </section><!-- End Resume Section -->
 
-    <!-- ======= Portfolio Section ======= -->
-    <!-- <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      <div class="skill-card rv">
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+          <h3>Cloud / DevOps</h3>
         </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
+        <div class="chips"><i>Docker</i><i>Kubernetes</i><i>AWS</i><i>Jenkins</i><i>GitLab CI/CD</i><i>Kafka</i><i>RabbitMQ</i></div>
       </div>
-    </section>
-    
-    
-     -->
-    <!-- End Portfolio Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Publications</h2>
+      <div class="skill-card rv">
+        <div class="top">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6M4.2 19.8l4.3-4.3M15.5 8.5l4.3-4.3"/></svg></span>
+          <h3>Concepts</h3>
         </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="https://ieeexplore.ieee.org/abstract/document/9608436">FarmEasy: An intelligent platform to empower crops prediction and crops marketing</a></h4>
-            <p class="description">Publication date: 2021/10/20</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="https://www.mdpi.com/1424-8220/23/7/3413">Access Control Design Practice and Solutions in Cloud-Native Architecture: A Systematic Mapping Study</a></h4>
-            <p class="description">Publication date: 2023/3/24</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="https://www.mdpi.com/1424-8220/23/4/1755">Static-Analysis-Based Solutions to Security Challenges in Cloud-Native Systems: Systematic Mapping Study</a></h4>
-            <p class="description">Publication date: 2023/2/4</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="https://ieeexplore.ieee.org/abstract/document/8628143">Developing an mHealth Application to Empower Community Health Service for Married Couple: Challenges and Opportunities</a></h4>
-            <p class="description">Publication date: 2018/9/13</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="https://ieeexplore.ieee.org/abstract/document/8631919">Development of an Intelligent Platform to Digitize Marriage, Empower Married Couple for Life and Family Wellbeing Towards Digital Bangladesh</a></h4>
-            <p class="description">Publication date: 2018/12/21</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="https://ieeexplore.ieee.org/abstract/document/10329650">Exploring Chromatin Interaction Between Two Human Cell Types and Different Normalization Techniques for HI-C Data</a></h4>
-            <p class="description">Publication date: 2023/12/4</p>
-          </div>
-        </div>
-
+        <div class="chips"><i>Distributed Systems</i><i>Microservices</i><i>API Design</i><i>Protocol Design</i><i>Passkey Architecture</i><i>Secure System Design</i><i>Empirical User Studies</i></div>
       </div>
-    </section><!-- End Services Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
+    </div>
+  </div>
+</section>
 
-        <div class="section-title">
-          <h2>Contact</h2>
-        </div>
+<!-- ============================= EDUCATION ============================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">06 · ./education</span>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-grid">
 
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-12 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p> L.F. Peterson Building, 435 Nagle St, College Station, TX 77843</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>mdshahidur_rahaman@tamu.edu</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 254 327 6044</p>
-              </div>
-
-             </div>
-
-          </div>
-
-          
-
-        </div>
-
+      <div class="edu rv">
+        <span class="deg">PhD · In Progress</span>
+        <h3>Ph.D. in Computer Science</h3>
+        <div class="where"><a href="https://www.tamu.edu/" target="_blank" rel="noopener">Texas A&amp;M University</a> · College Station, TX</div>
+        <div class="row"><span>Jan 2024 — Present</span><span class="gpa">GPA 4.0</span></div>
+        <div class="note">Advisor: <a href="https://nsaxena.engr.tamu.edu/" target="_blank" rel="noopener">Prof. Nitesh Saxena</a>. Network Security · Distributed Systems.</div>
       </div>
-    </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
+      <div class="edu rv">
+        <span class="deg">MS · Completed</span>
+        <h3>M.S. in Computer Science</h3>
+        <div class="where"><a href="https://www.baylor.edu/" target="_blank" rel="noopener">Baylor University</a> · Waco, TX</div>
+        <div class="row"><span>Aug 2021 — Dec 2023</span><span class="gpa">GPA 3.51</span></div>
+        <div class="note">Cybersecurity · Software Engineering · Advanced Algorithms.</div>
+      </div>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    
-  </footer><!-- End  Footer -->
+      <div class="edu rv">
+        <span class="deg">B.Sc · Completed</span>
+        <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+        <div class="where">Military Institute of Science &amp; Technology (MIST) · Dhaka, Bangladesh</div>
+        <div class="row"><span>Jan 2014 — Jan 2018</span><span class="gpa">GPA 3.54</span></div>
+        <div class="note">Dean's List 2016 &amp; 2017.</div>
+      </div>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    </div>
+  </div>
+</section>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+<!-- ============================= HONORS ============================= -->
+<section id="honors">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">07 · ./honors --and-leadership</span>
+      <h2>Honors &amp; Leadership</h2>
+    </div>
+    <div class="honor-grid">
+      <div class="honor rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg></span>
+        <div><h4>Dean's List — MIST</h4><p>Awarded in 2016 and 2017 for sustained academic excellence.</p></div>
+      </div>
+      <div class="honor rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <div><h4>General Secretary — Bangladesh Student Association</h4><p>Led 70+ members at Baylor University (2022).</p></div>
+      </div>
+      <div class="honor rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg></span>
+        <div><h4>General Secretary — Cricket Club</h4><p>Led 120+ members at Baylor University (2023).</p></div>
+      </div>
+      <div class="honor rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+        <div><h4>Student Supervision &amp; Mentoring</h4><p>Mentored 7 undergraduate thesis &amp; capstone students across Baylor and MIST.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+<!-- ============================= CONTACT ============================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card rv">
+      <div class="sec-tag" style="justify-content:center;margin-bottom:14px">08 · ./connect</div>
+      <h2>Let's build secure systems together.</h2>
+      <p>Open to research collaborations, PhD-level security work, and conversations about E2EE, authentication, and AI safety. The fastest way to reach me is email.</p>
+      <div class="contact-rows">
+        <button class="c-pill" id="copyEmail" data-email="mdshahidur_rahaman@tamu.edu">
+          <span class="tip">Copied!</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          mdshahidur_rahaman@tamu.edu
+        </button>
+        <a class="c-pill" href="tel:+12543276044">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (254) 327-6044
+        </a>
+      </div>
+      <div class="social-row" style="justify-content:center">
+        <a href="https://github.com/Shahidur60" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.9 10.9 0 0 1 5.75 0c2.19-1.49 3.15-1.18 3.15-1.18.63 1.58.23 2.75.12 3.04.74.81 1.18 1.83 1.18 3.09 0 4.43-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.2.66.8.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/md-shahidur-rahaman-02443912a/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14.8H.2V8zm7.6 0h4.4v2h.06c.61-1.16 2.11-2.38 4.35-2.38 4.65 0 5.51 3.06 5.51 7.04v8.14h-4.6v-7.22c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.88-2.77 3.81v7.35H7.8V8z"/></svg>
+        </a>
+        <a href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Md+Shahidur+Rahaman" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L0 9.5l4.84 2.97v5.7L12 22l7.16-3.83v-5.7l2.02-1.24V18h1.64V9.5L12 2zm0 2.08L19.4 9 12 13.08 4.6 9 12 4.08zm5.52 8.39v4.3L12 19.92l-5.52-3.15v-4.3L12 15.92l5.52-3.45z"/></svg>
+        </a>
+        <a href="Resume.pdf" target="_blank" rel="noopener" aria-label="Resume" title="Download CV">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-logo">~/shahidur $ exit</div>
+    <p>&copy; <span id="yr"></span> Md Shahidur Rahaman · Built with curiosity in College Station, TX.</p>
+    <p style="margin-top:6px;font-size:.72rem">Research interests: E2EE · Authentication Protocols · ML/LLM Security · AI Privacy · Device-Linking Security · AR/VR Privacy · Cryptographic Protocol Design</p>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- year ---------- */
+  $('#yr').textContent=new Date().getFullYear();
+
+  /* ---------- theme ---------- */
+  var root=document.documentElement, tToggle=$('#themeToggle'),
+      iMoon=$('#iconMoon'), iSun=$('#iconSun');
+  function applyTheme(t){
+    root.setAttribute('data-theme',t);
+    iMoon.style.display = t==='dark'?'none':'block';
+    iSun.style.display  = t==='dark'?'block':'none';
+    try{localStorage.setItem('theme',t)}catch(e){}
+  }
+  var saved;try{saved=localStorage.getItem('theme')}catch(e){}
+  applyTheme(saved|| 'light');
+  tToggle.addEventListener('click',function(){
+    applyTheme(root.getAttribute('data-theme')==='dark'?'light':'dark');
+  });
+
+  /* ---------- nav scroll + mobile ---------- */
+  var nav=$('#nav'), mobile=$('#mobileMenu'), burger=$('#hamburger'), prog=$('#progress'), toTop=$('#toTop');
+  function onScroll(){
+    var y=window.pageYOffset||document.documentElement.scrollTop;
+    nav.classList.toggle('scrolled', y>20);
+    toTop.classList.toggle('show', y>640);
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0?(y/h)*100:0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  burger.addEventListener('click',function(){mobile.classList.toggle('open')});
+  $$('#mobileMenu a').forEach(function(a){a.addEventListener('click',function(){mobile.classList.remove('open')})});
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})});
+
+  /* ---------- active nav link via sections ---------- */
+  var navMap={};
+  $$('#navLinks a').forEach(function(a){navMap[a.getAttribute('href').slice(1)]=a});
+  var secs=Object.keys(navMap).map(function(id){return document.getElementById(id)}).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          Object.keys(navMap).forEach(function(k){navMap[k].classList.remove('active')});
+          if(navMap[e.target.id])navMap[e.target.id].classList.add('active');
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){spy.observe(s)});
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  if('IntersectionObserver' in window && !reduce){
+    var rvO=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rvO.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    $$('.rv').forEach(function(el){rvO.observe(el)});
+  } else { $$('.rv').forEach(function(el){el.classList.add('in')}); }
+
+  /* ---------- count up ---------- */
+  function animateCount(el){
+    var to=+el.getAttribute('data-to'), suf=el.getAttribute('data-suffix')||'', start=null, dur=1500;
+    if(reduce){el.textContent=to+suf;return;}
+    function step(ts){
+      if(!start)start=ts; var p=Math.min((ts-start)/dur,1);
+      var eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(to*eased)+suf;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var cO=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){animateCount(e.target);cO.unobserve(e.target)}});
+    },{threshold:.5});
+    $$('.count').forEach(function(el){cO.observe(el)});
+  } else { $$('.count').forEach(animateCount); }
+
+  /* ---------- hero typer ---------- */
+  var phrases=[
+    'Breaking E2EE authentication ceremonies.',
+    'Designing passkey-anchored defenses.',
+    'Red-teaming LLMs for privacy leakage.',
+    'Running IRB-approved user studies.',
+    'PhD Candidate @ Texas A&M · GPA 4.0'
+  ];
+  var tEl=$('#typer'), pi=0, ci=0, deleting=false;
+  function typeLoop(){
+    var cur=phrases[pi];
+    if(reduce){tEl.textContent=phrases[phrases.length-1];return;}
+    if(!deleting){
+      tEl.textContent=cur.slice(0,++ci);
+      if(ci===cur.length){deleting=true;return setTimeout(typeLoop,1800);}
+    } else {
+      tEl.textContent=cur.slice(0,--ci);
+      if(ci===0){deleting=false;pi=(pi+1)%phrases.length;}
+    }
+    setTimeout(typeLoop, deleting?34:62);
+  }
+  typeLoop();
+
+  /* ---------- copy email ---------- */
+  var copyBtn=$('#copyEmail');
+  copyBtn.addEventListener('click',function(){
+    var em=copyBtn.getAttribute('data-email');
+    var done=function(){copyBtn.classList.add('copied');setTimeout(function(){copyBtn.classList.remove('copied')},1400)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(em).then(done).catch(done);}
+    else{window.location.href='mailto:'+em;}
+  });
+
+  /* ---------- terminal boot animation ---------- */
+  var termBody=$('#termBody');
+  var termLines=[
+    {t:'<span class="c-p">shahidur@spies-lab</span>:<span class="c-key">~/research</span>$ <span class="c-cmd">whoami</span>',d:60},
+    {t:'<span class="c-ok">PhD Candidate &middot; Computer Science &middot; Texas A&amp;M</span>',d:30},
+    {t:'<span class="c-p">shahidur@spies-lab</span>:<span class="c-key">~/research</span>$ <span class="c-cmd">cat focus.txt</span>',d:60},
+    {t:'  <span class="c-key">&rarr;</span> End-to-End Encryption &amp; Auth Ceremonies',d:30},
+    {t:'  <span class="c-key">&rarr;</span> ML / LLM Security &amp; AI Privacy',d:30},
+    {t:'  <span class="c-key">&rarr;</span> Device-Linking &amp; Passkey Architecture',d:30},
+    {t:'<span class="c-p">shahidur@spies-lab</span>:<span class="c-key">~/research</span>$ <span class="c-cmd">./impact --summary</span>',d:60},
+    {t:'  <span class="c-ok">13</span> publications  <span class="c-ok">217</span> citations  <span class="c-ok">h-index 6</span>',d:30},
+    {t:'  <span class="c-ok">90%+</span> attacker success &middot; <span class="c-ok">0.9958</span> AUC (SIVAI)',d:30},
+    {t:'<span class="c-p">shahidur@spies-lab</span>:<span class="c-key">~/research</span>$ <span class="c-dim">_</span>',d:60}
+  ];
+  function renderTerm(){
+    termBody.innerHTML='';
+    var i=0;
+    function next(){
+      if(i>=termLines.length){
+        var last=termBody.lastChild;
+        if(last){var c=document.createElement('span');c.className='term-caret';last.appendChild(c);}
+        return;
+      }
+      var ln=document.createElement('span');
+      ln.className='ln'; ln.innerHTML=termLines[i].t;
+      ln.style.opacity='0';ln.style.transform='translateY(4px)';
+      ln.style.transition='opacity .3s, transform .3s';
+      termBody.appendChild(ln);
+      requestAnimationFrame(function(){ln.style.opacity='1';ln.style.transform='none';});
+      i++;
+      setTimeout(next, reduce?0:(220+termLines[i-1].d*2));
+    }
+    next();
+  }
+  if('IntersectionObserver' in window){
+    var tO=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){renderTerm();tO.disconnect();}});
+    },{threshold:.3});
+    tO.observe($('#termCard'));
+  } else renderTerm();
+
+  /* ---------- project filters ---------- */
+  var pFilters=$('#projFilters'), projects=$$('#projGrid .proj');
+  pFilters.addEventListener('click',function(e){
+    var b=e.target.closest('.chip'); if(!b)return;
+    $$('.chip',pFilters).forEach(function(c){c.classList.remove('on')});
+    b.classList.add('on');
+    var f=b.getAttribute('data-f');
+    projects.forEach(function(p){
+      var show = f==='all' || (p.getAttribute('data-cat')||'').indexOf(f)>-1;
+      p.classList.toggle('hide',!show);
+    });
+  });
+  projects.forEach(function(p){
+    p.addEventListener('pointermove',function(ev){
+      var r=p.getBoundingClientRect();
+      p.style.setProperty('--mx',(ev.clientX-r.left)+'px');
+      p.style.setProperty('--my',(ev.clientY-r.top)+'px');
+    });
+  });
+
+  /* ---------- publications data + render ---------- */
+  var PUBS=[
+    {n:1,title:'Stress Testing Social Media Authentication Ceremonies of End-to-End Encrypted Messaging with Ephemeral Fake Accounts',authors:'<b>M. S. Rahaman</b>, N. Saxena',venue:'Intl. Conference on Information Security (ISC)',year:'2026',type:'pub'},
+    {n:2,title:'TrackAR: AR/VR Device Fingerprinting and User-Device Pairing Detection via Shared Motion Sensor Data',authors:'A. T. Mahdad, <b>M. S. Rahaman</b>, N. Saxena',venue:'ACM WiSec',year:'2026',type:'pub'},
+    {n:3,title:'A Dataset of Microservices-Based Open-Source Projects',authors:"D. Amoroso d'Aragona, A. Bakhtin, X. Li, R. Su, &hellip;, <b>M. S. Rahaman</b>, M. M&auml;ntyl&auml;, T. &#268;ern&yacute;, D. Taibi",venue:'21st Intl. Conference on Mining Software Repositories (MSR)',year:'2024',type:'pub'},
+    {n:4,title:'Navigating the Multimodal Landscape: A Review on Integration of Text and Image Data in Machine Learning Architectures',authors:'M. Binte Rashid, <b>M. S. Rahaman</b>, P. Rivas',venue:'Machine Learning and Knowledge Extraction, 6(3):1545&ndash;1563',year:'2024',type:'pub'},
+    {n:5,title:'Quantune: An Automatic Music Generation Using Quantum Computing',authors:'<b>M. S. Rahaman</b>, A. Islam, J. Orduz',venue:'Reports on Progress in Physics',year:'2024',type:'pub'},
+    {n:6,title:'A Comparative Evaluation of Image Caption Synthesis Using Deep Neural Network',authors:'S. N. Tisha, <b>M. S. Rahaman</b>, P. Rivas',venue:'Next Generation Data Science (SDSC), Springer LNCS',year:'2024',type:'pub'},
+    {n:7,title:'Static-Analysis-Based Solutions to Security Challenges in Cloud-Native Systems',authors:'<b>M. S. Rahaman</b>, A. Islam, T. &#268;ern&yacute;, S. Hutton',venue:'Sensors, 23(4):1755',year:'2023',type:'pub',url:'https://www.mdpi.com/1424-8220/23/4/1755'},
+    {n:8,title:'Access Control Design Practice and Solutions in Cloud-Native Architecture: A Systematic Mapping Study',authors:'<b>M. S. Rahaman</b>, S. N. Tisha, E. Song, T. &#268;ern&yacute;',venue:'Sensors, 23(7):3413',year:'2023',type:'pub',url:'https://www.mdpi.com/1424-8220/23/7/3413'},
+    {n:9,title:'Bless: An Interactive Application to Show Gratitude towards Doctors',authors:'M. Rahman, <b>M. S. Rahaman</b>, M. S. H. Chy',venue:'IEEE 11th Intl. Conf. on Serious Games and Applications for Health',year:'2023',type:'pub'},
+    {n:10,title:'Exploring Chromatin Interaction Between Two Human Cell Types and Different Normalization Techniques for HI-C Data',authors:'M. Rahman, M. S. H. Chy, A. Rahman, S. Ahmed, T. Sharmin, <b>M. S. Rahaman</b>',venue:'27th Intl. Computer Science and Engineering Conference (ICSEC)',year:'2023',type:'pub',url:'https://ieeexplore.ieee.org/abstract/document/10329650'},
+    {n:11,title:'FarmEasy: An Intelligent Platform to Empower Crops Prediction and Crops Marketing',authors:'M. Ishak, <b>M. S. Rahaman</b>, T. Mahmud',venue:'13th Intl. Conf. on Information and Communication Technology and System',year:'2021',type:'pub',url:'https://ieeexplore.ieee.org/abstract/document/9608436'},
+    {n:12,title:'Developing an mHealth Application to Empower Community Health Service for Married Couple: Challenges and Opportunities',authors:'<b>M. S. Rahaman</b>, N. R. Oyshee, S. A. Pratik, K. A. Al Mamun',venue:'4th Intl. Conf. on Electrical Engineering and ICT (ICEEICT)',year:'2018',type:'pub',url:'https://ieeexplore.ieee.org/abstract/document/8628143'},
+    {n:13,title:'Development of an Intelligent Platform to Digitize Marriage, Empower Married Couple for Life and Family Wellbeing Towards Digital Bangladesh',authors:'<b>M. S. Rahaman</b>, N. R. Oyshee, S. A. Pratic, K. A. Al Mamun',venue:'21st Intl. Conference of Computer and Information Technology (ICCIT)',year:'2018',type:'pub',url:'https://ieeexplore.ieee.org/abstract/document/8631919'},
+    {n:'U1',title:'Inaccessibility-Triggered Security Vulnerabilities in QR Code-Based Device Linking and Browser Syncing',authors:'<b>M. S. Rahaman</b>, N. Saxena',venue:'Under Review',year:'2025',type:'review'},
+    {n:'U2',title:'When Seeing Deceives: Compromising Multi-Device Linking in End-to-End Encrypted Messaging',authors:'<b>M. S. Rahaman</b>, A. T. Mahdad, N. Saxena',venue:'Under Review',year:'2025',type:'review'},
+    {n:'U3',title:"Impersonating Zoom's E2EE-Protected Static Media and Textual Communications via Voice Scrambling: Design and User Study",authors:'<b>M. S. Rahaman</b>, N. Saxena',venue:'Under Review',year:'2025',type:'review'}
+  ];
+  var pubList=$('#pubList'), pubEmpty=$('#pubEmpty'), pubSearch=$('#pubSearch');
+  var curTab='all', curQuery='';
+  function esc(s){return s.replace(/&(?![a-z#0-9]+;)/gi,'&amp;');}
+  function pubCard(p){
+    var linkHtml = p.url
+      ? '<a class="link-out" href="'+p.url+'" target="_blank" rel="noopener">View <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>'
+      : '';
+    var titleHtml = p.url ? '<a href="'+p.url+'" target="_blank" rel="noopener">'+p.title+'</a>' : p.title;
+    return '<article class="pub" data-type="'+p.type+'">'+
+      '<span class="pub-num">'+p.n+'</span>'+
+      '<div><h4>'+titleHtml+'</h4>'+
+      '<div class="authors">'+p.authors+'</div>'+
+      '<div class="meta"><span class="venue">'+p.venue+'</span><span class="yr">'+p.year+'</span>'+linkHtml+'</div>'+
+      '</div></article>';
+  }
+  function renderPubs(){
+    var q=curQuery.toLowerCase();
+    var items=PUBS.filter(function(p){
+      if(curTab!=='all' && p.type!==curTab)return false;
+      if(!q)return true;
+      return (p.title+' '+p.venue+' '+p.authors+' '+p.year).toLowerCase().indexOf(q)>-1;
+    });
+    pubList.innerHTML=items.map(pubCard).join('');
+    pubEmpty.style.display=items.length?'none':'block';
+  }
+  renderPubs();
+  $$('.pub-tabs .chip').forEach(function(b){
+    b.addEventListener('click',function(){
+      $$('.pub-tabs .chip').forEach(function(c){c.classList.remove('on')});
+      b.classList.add('on'); curTab=b.getAttribute('data-pf'); renderPubs();
+    });
+  });
+  pubSearch.addEventListener('input',function(){curQuery=pubSearch.value;renderPubs();});
+
+  /* ---------- hero particle network ---------- */
+  (function(){
+    var cv=document.getElementById('net'); if(!cv)return;
+    var ctx=cv.getContext('2d'), DPR=Math.min(window.devicePixelRatio||1,2);
+    var W=0,H=0,pts=[],mouse={x:-9999,y:-9999}, raf=null, running=false;
+    function col(){
+      return document.documentElement.getAttribute('data-theme')==='light'
+        ? {line:'60,92,66',dot:'27,112,79'} : {line:'150,185,150',dot:'99,200,152'};
+    }
+    function size(){
+      var host=cv.parentElement; W=host.clientWidth; H=host.clientHeight;
+      cv.width=W*DPR; cv.height=H*DPR; cv.style.width=W+'px'; cv.style.height=H+'px';
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+      var count=Math.min(Math.round(W*H/16000),110);
+      pts=[];
+      for(var i=0;i<count;i++){
+        pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.6+.6});
+      }
+    }
+    function step(){
+      ctx.clearRect(0,0,W,H);
+      var c=col();
+      for(var i=0;i<pts.length;i++){
+        var p=pts[i];
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>W)p.vx*=-1;
+        if(p.y<0||p.y>H)p.vy*=-1;
+        var dxm=p.x-mouse.x, dym=p.y-mouse.y, dm=dxm*dxm+dym*dym;
+        if(dm<14000){var f=(14000-dm)/14000*0.04; p.x+=dxm*f; p.y+=dym*f;}
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,6.2832);
+        ctx.fillStyle='rgba('+c.dot+',.75)';
+        ctx.fill();
+      }
+      for(var a=0;a<pts.length;a++){
+        for(var b=a+1;b<pts.length;b++){
+          var dx=pts[a].x-pts[b].x, dy=pts[a].y-pts[b].y, d=dx*dx+dy*dy;
+          if(d<15000){
+            ctx.beginPath();
+            ctx.moveTo(pts[a].x,pts[a].y); ctx.lineTo(pts[b].x,pts[b].y);
+            ctx.strokeStyle='rgba('+c.line+','+(0.16*(1-d/15000)).toFixed(3)+')';
+            ctx.lineWidth=1; ctx.stroke();
+          }
+        }
+      }
+      raf=requestAnimationFrame(step);
+    }
+    function start(){ if(running||reduce)return; running=true; step(); }
+    function stop(){ running=false; if(raf)cancelAnimationFrame(raf); raf=null; }
+    var host=cv.parentElement;
+    host.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+    host.addEventListener('pointerleave',function(){mouse.x=-9999;mouse.y=-9999;});
+    var rt;
+    window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(size,200);});
+    size();
+    if(!reduce){
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){
+          es.forEach(function(e){ e.isIntersecting?start():stop(); });
+        },{threshold:.02}).observe(host);
+      } else start();
+    } else {
+      /* static frame for reduced motion */
+      var c=col();
+      pts.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.2832);ctx.fillStyle='rgba('+c.dot+',.6)';ctx.fill();});
+    }
+    /* repaint colors on theme switch */
+    document.getElementById('themeToggle').addEventListener('click',function(){ if(reduce){ctx.clearRect(0,0,W,H);var cc=col();pts.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.2832);ctx.fillStyle='rgba('+cc.dot+',.6)';ctx.fill();});} });
+  })();
+
+})();
+</script>
 </body>
-
 </html>
