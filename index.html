@@ -858,7 +858,7 @@
     <div class="sec-head rv">
       <span class="sec-tag">02 · Research</span>
       <h2>Research &amp; Projects</h2>
-      <p>Peer-reviewed work across secure communication, applied machine learning, and cloud-native systems.</p>
+      <p>Current research, open-source projects, and peer-reviewed work across secure communication, AI security, and systems.</p>
     </div>
     <div class="filters rv" id="projFilters">
       <button class="chip on" data-f="all">All</button>
@@ -867,6 +867,26 @@
       <button class="chip" data-f="sys">Systems</button>
     </div>
     <div class="proj-grid" id="projGrid">
+
+      <article class="proj rv" data-cat="security ai">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></span>
+          <span class="status">IN PROGRESS</span>
+        </div>
+        <h3>Ongoing Research</h3>
+        <p>Current projects at the SPIES Lab examine how people, devices, and AI agents affect the security of private communication. Details are shared after publication.</p>
+        <div class="tags"><i>E2EE</i><i>AI Security</i><i>Usable Security</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="security ai">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg></span>
+          <span class="status ok">OPEN SOURCE</span>
+        </div>
+        <h3><a href="https://github.com/Shahidur60/agentic-e2ee-lab" target="_blank" rel="noopener">Agentic E2EE Lab</a></h3>
+        <p>A working encrypted messenger with an AI assistant inside, attacked with prompt injection hidden in encrypted messages. A capability guard cut attack success from up to 100% to 0% in simulation, with no loss in task success.</p>
+        <div class="tags"><i>E2EE</i><i>AI Agents</i><i>Prompt Injection</i><i>Python</i></div>
+      </article>
 
       <article class="proj rv" data-cat="security">
         <div class="proj-top">
@@ -886,6 +906,26 @@
         <h3>TrackAR</h3>
         <p>AR/VR device fingerprinting and user-device pairing detection via shared motion sensor data, accepted at ACM WiSec 2026.</p>
         <div class="tags"><i>AR/VR</i><i>Privacy</i><i>Motion Sensors</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="security ai">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></span>
+          <span class="status ok">OVERVIEW</span>
+        </div>
+        <h3><a href="https://github.com/Shahidur60/secure-communication-research" target="_blank" rel="noopener">Research Overview on GitHub</a></h3>
+        <p>My research directions, methods, published work, and open tools in one place: securing private communication when people and AI are in the loop.</p>
+        <div class="tags"><i>Research Map</i><i>Publications</i><i>Open Source</i></div>
+      </article>
+
+      <article class="proj rv" data-cat="ai">
+        <div class="proj-top">
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="status ok">OPEN TOOL</span>
+        </div>
+        <h3><a href="https://github.com/Shahidur60/secure-communication-research/tree/main/tools/judge-agreement" target="_blank" rel="noopener">judge-agreement</a></h3>
+        <p>Checks whether an automated grader, such as an LLM judge, actually agrees with human labels, using Cohen's kappa with bootstrap confidence intervals. Python, tested.</p>
+        <div class="tags"><i>LLM Evaluation</i><i>Python</i><i>Statistics</i></div>
       </article>
 
       <article class="proj rv" data-cat="sys security">
@@ -908,16 +948,6 @@
         <div class="tags"><i>Multimodal</i><i>NLP</i><i>Vision</i></div>
       </article>
 
-      <article class="proj rv" data-cat="security ai">
-        <div class="proj-top">
-          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg></span>
-          <span class="status ok">OPEN SOURCE</span>
-        </div>
-        <h3><a href="https://github.com/Shahidur60/agentic-e2ee-lab" target="_blank" rel="noopener">Agentic E2EE Lab</a></h3>
-        <p>A working encrypted messenger with an AI assistant inside, attacked with prompt injection hidden in encrypted messages. A capability guard cut attack success from up to 100% to 0% in simulation, with no loss in task success.</p>
-        <div class="tags"><i>E2EE</i><i>AI Agents</i><i>Prompt Injection</i><i>Python</i></div>
-      </article>
-
       <article class="proj rv" data-cat="sys">
         <div class="proj-top">
           <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></span>
@@ -926,36 +956,6 @@
         <h3>Microservices Dataset</h3>
         <p>A curated dataset of microservices-based open-source projects, published at the International Conference on Mining Software Repositories.</p>
         <div class="tags"><i>Dataset</i><i>Microservices</i><i>Open Source</i></div>
-      </article>
-
-      <article class="proj rv" data-cat="security ai">
-        <div class="proj-top">
-          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg></span>
-          <span class="status">IN PROGRESS</span>
-        </div>
-        <h3>Ongoing Research</h3>
-        <p>Current projects at the SPIES Lab examine how people, devices, and AI agents affect the security of private communication. Details are shared after publication.</p>
-        <div class="tags"><i>E2EE</i><i>AI Security</i><i>Usable Security</i></div>
-      </article>
-
-      <article class="proj rv" data-cat="security ai">
-        <div class="proj-top">
-          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></span>
-          <span class="status ok">OVERVIEW</span>
-        </div>
-        <h3><a href="https://github.com/Shahidur60/secure-communication-research" target="_blank" rel="noopener">Research Overview on GitHub</a></h3>
-        <p>My research directions, methods, published work, and open tools in one place: securing private communication when people and AI are in the loop.</p>
-        <div class="tags"><i>Research Map</i><i>Publications</i><i>Open Source</i></div>
-      </article>
-
-      <article class="proj rv" data-cat="ai">
-        <div class="proj-top">
-          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-          <span class="status ok">OPEN TOOL</span>
-        </div>
-        <h3><a href="https://github.com/Shahidur60/secure-communication-research/tree/main/tools/judge-agreement" target="_blank" rel="noopener">judge-agreement</a></h3>
-        <p>Checks whether an automated grader, such as an LLM judge, actually agrees with human labels, using Cohen's kappa with bootstrap confidence intervals. Python, tested.</p>
-        <div class="tags"><i>LLM Evaluation</i><i>Python</i><i>Statistics</i></div>
       </article>
 
     </div>
@@ -1009,6 +1009,8 @@
           <li>Co-authored <b>TrackAR</b>, a study of AR/VR device fingerprinting via shared motion sensor data, accepted at <b>ACM WiSec 2026</b>.</li>
           <li>Design and conduct <b>IRB-approved user studies</b> on how people make security decisions in private communication.</li>
           <li>Build research prototypes and formal models spanning <b>identity, trust, and AI agent security</b>; details are shared after publication.</li>
+          <li>Build LLM evaluation pipelines with open-weight models on GPU and HPC clusters, validating automated graders against blind human labels before reporting results.</li>
+          <li>Released open-source work: <a href="https://github.com/Shahidur60/agentic-e2ee-lab" target="_blank" rel="noopener"><b>Agentic E2EE Lab</b></a>, an evaluation of prompt injection against AI assistants inside an encrypted messenger, and <a href="https://github.com/Shahidur60/secure-communication-research/tree/main/tools/judge-agreement" target="_blank" rel="noopener"><b>judge-agreement</b></a>, a grader-validation tool.</li>
         </ul>
       </div>
 
@@ -1061,7 +1063,7 @@
         <div class="org"><a href="https://www.southtechgroup.com/" target="_blank" rel="noopener">Southtech Ltd.</a> · Bangladesh</div>
         <ul>
           <li>Designed <b>ASP.NET Core</b> systems for Ascend Finance serving <b>100K+ users</b>.</li>
-          <li>Refactored scheduling algorithms for <b>65% efficiency gains</b>; implemented RBAC and OWASP-aligned secure APIs.</li>
+          <li>Redesigned fleet scheduling and routing algorithms, reducing operational cost by <b>31%</b>; implemented RBAC and OWASP-aligned secure APIs.</li>
         </ul>
       </div>
 
@@ -1092,7 +1094,7 @@
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></span>
           <h3>Frameworks</h3>
         </div>
-        <div class="chips"><i>PyTorch</i><i>TensorFlow</i><i>scikit-learn</i><i>Spring Boot</i><i>Spring Cloud</i><i>ASP.NET Core</i><i>Flutter</i></div>
+        <div class="chips"><i>PyTorch</i><i>Hugging Face Transformers</i><i>ONNX Runtime</i><i>TensorFlow</i><i>scikit-learn</i><i>FastAPI</i><i>Spring Boot</i><i>Spring Cloud</i><i>ASP.NET Core</i><i>Flutter</i></div>
       </div>
 
       <div class="skill-card rv">
@@ -1100,7 +1102,7 @@
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
           <h3>Security</h3>
         </div>
-        <div class="chips"><i>End-to-End Encryption</i><i>Authentication</i><i>Formal Verification</i><i>WebAuthn/FIDO2</i><i>OAuth2</i><i>TLS</i><i>Threat Modeling</i><i>OWASP</i><i>Adversarial ML</i><i>LLM Security</i><i>Prompt Injection</i></div>
+        <div class="chips"><i>End-to-End Encryption</i><i>Applied Cryptography (X25519, AES-GCM, Ed25519)</i><i>Authentication</i><i>Formal Verification (Tamarin)</i><i>WebAuthn/FIDO2</i><i>OAuth2</i><i>TLS</i><i>Threat Modeling</i><i>OWASP</i><i>Adversarial ML</i><i>LLM Security</i><i>Prompt Injection</i></div>
       </div>
 
       <div class="skill-card rv">
@@ -1108,7 +1110,7 @@
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-2 7 4 4 0 0 0 2 7 4 4 0 0 0 8 0 4 4 0 0 0 2-7 4 4 0 0 0-2-7 4 4 0 0 0-4-4z"/></svg></span>
           <h3>ML / AI</h3>
         </div>
-        <div class="chips"><i>LLM Evaluation</i><i>Red-Teaming</i><i>Llama</i><i>Qwen</i><i>LLM-as-Judge</i><i>NLP</i><i>Model Robustness</i><i>Trustworthy AI</i><i>CNN</i><i>XGBoost</i><i>LightGBM</i></div>
+        <div class="chips"><i>LLM Evaluation</i><i>Red-Teaming</i><i>Agent Security</i><i>Llama</i><i>Qwen</i><i>LLM-as-Judge</i><i>Speech Models (Whisper)</i><i>NLP</i><i>Model Robustness</i><i>Trustworthy AI</i><i>CNN</i><i>XGBoost</i><i>LightGBM</i></div>
       </div>
 
       <div class="skill-card rv">
@@ -1116,7 +1118,7 @@
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
           <h3>Cloud / DevOps</h3>
         </div>
-        <div class="chips"><i>Docker</i><i>Kubernetes</i><i>AWS</i><i>Jenkins</i><i>GitLab CI/CD</i><i>Kafka</i><i>RabbitMQ</i></div>
+        <div class="chips"><i>Docker</i><i>Kubernetes</i><i>AWS</i><i>Slurm / HPC</i><i>Jenkins</i><i>GitLab CI/CD</i><i>Kafka</i><i>RabbitMQ</i></div>
       </div>
 
       <div class="skill-card rv">
@@ -1144,7 +1146,7 @@
         <span class="deg">PhD · In Progress</span>
         <h3>Ph.D. in Computer Science</h3>
         <div class="where"><a href="https://www.tamu.edu/" target="_blank" rel="noopener">Texas A&amp;M University</a> · College Station, TX</div>
-        <div class="row"><span>Jan 2024 – Present</span><span class="gpa">GPA 4.0</span></div>
+        <div class="row"><span>Jan 2024 – Jul 2027 (expected)</span><span class="gpa">GPA 4.0</span></div>
         <div class="note">Advisor: <a href="https://nsaxena.engr.tamu.edu/" target="_blank" rel="noopener">Prof. Nitesh Saxena</a>. Network Security · Distributed Systems.</div>
       </div>
 
@@ -1153,7 +1155,7 @@
         <h3>M.S. in Computer Science</h3>
         <div class="where"><a href="https://www.baylor.edu/" target="_blank" rel="noopener">Baylor University</a> · Waco, TX</div>
         <div class="row"><span>Aug 2021 – Dec 2023</span><span class="gpa">GPA 3.51</span></div>
-        <div class="note">Cybersecurity · Software Engineering · Advanced Algorithms.</div>
+        <div class="note">Supervisor: Prof. Eunjee Song. Cybersecurity · Software Engineering · Advanced Algorithms.</div>
       </div>
 
       <div class="edu rv">
@@ -1226,7 +1228,7 @@
     <div class="contact-card rv">
       <div class="sec-tag" style="justify-content:center;margin-bottom:14px">09 · Contact</div>
       <h2>Let's build secure systems together.</h2>
-      <p>Open to research collaborations, PhD-level security work, and conversations about E2EE, authentication, and AI safety. The fastest way to reach me is email.</p>
+      <p>I am looking for <b>research internships and co-ops for 2027</b>, and <b>postdoctoral and faculty positions</b> from 2027. I am also glad to talk about collaborations in secure communication, authentication, and AI security. The fastest way to reach me is email.</p>
       <div class="contact-rows">
         <button class="c-pill" id="copyEmail" data-email="mdshahidur_rahaman@tamu.edu">
           <span class="tip">Copied!</span>
@@ -1357,6 +1359,7 @@
     'Securing end-to-end encrypted communication.',
     'Studying trust and identity in private communication.',
     'Advancing ML and LLM security.',
+    'Building AI agents that cannot be talked into mistakes.',
     'PhD student at Texas A&M · GPA 4.0'
   ];
   var tEl=$('#typer'), pi=0, ci=0, deleting=false;
@@ -1488,6 +1491,10 @@
      To share new news: add an entry to the TOP of this list.
      Fields: date (shown in the pill), tag (small label), title, text. */
   var NEWS=[
+    {date:'Nov 2026',tag:'Open Source',title:'Released Agentic E2EE Lab',
+     text:'A working encrypted messenger with an AI assistant inside, attacked with prompt injection hidden in encrypted messages. Includes three defenses, an evaluation harness with confidence intervals, and tests.'},
+    {date:'Nov 2026',tag:'Open Source',title:'Research overview and judge-agreement tool on GitHub',
+     text:'A public overview of my research directions, plus judge-agreement, a tool that checks whether an LLM grader actually agrees with human labels.'},
     {date:'2026',tag:'Paper Accepted',title:'Paper accepted at ISC 2026',
      text:'Our study of social-media-based identity verification in end-to-end encrypted messaging will appear at the International Conference on Information Security.'},
     {date:'2026',tag:'Paper Accepted',title:'TrackAR accepted at ACM WiSec 2026',
