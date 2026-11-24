@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Md Shahidur Rahaman – Security &amp; AI Researcher</title>
-  <meta name="description" content="Md Shahidur Rahaman – PhD Candidate in Computer Science at Texas A&M University. Research in E2EE communication security, authentication ceremonies, and ML/LLM security. 13 peer-reviewed publications, 217 citations.">
+  <meta name="description" content="Md Shahidur Rahaman – PhD student in Computer Science at Texas A&M University. Research in secure communication, trust and identity, and AI and LLM security. 13 peer-reviewed publications, 217 citations.">
   <meta name="author" content="Md Shahidur Rahaman">
   <meta property="og:title" content="Md Shahidur Rahaman – Security & AI Researcher">
-  <meta property="og:description" content="PhD Candidate @ Texas A&M · E2EE & Authentication Security · ML/LLM Security · 13 publications, 217 citations.">
+  <meta property="og:description" content="PhD student @ Texas A&M · Secure Communication · AI & LLM Security · 13 publications, 217 citations.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/new.jpg">
   <link rel="icon" href="assets/img/favicon.png">
@@ -542,7 +542,43 @@
     html{scroll-behavior:auto}
     .rv{opacity:1;transform:none}
   }
-  </style>
+    /* ---------- impact section ---------- */
+  .imp-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start}
+  .imp-side{display:grid;gap:20px;min-width:0}
+  .imp-card{margin:0;background:var(--card);border:1px solid var(--card-border);border-radius:var(--r);padding:20px 22px;min-width:0}
+  .imp-card figcaption{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+  .imp-card svg{width:100%;height:auto;display:block}
+  .imp-card svg text{font-family:var(--body);fill:var(--text);text-anchor:middle}
+  .imp-ring circle{fill:none;stroke:var(--card-border);stroke-width:1.2;stroke-dasharray:4 5}
+  .imp-spokes path{stroke:var(--accent);stroke-width:1.4;opacity:.45}
+  .imp-core circle{fill:var(--accent)}
+  .imp-core text{fill:var(--on-accent)!important;font-family:var(--head)!important;font-weight:700;font-size:11px}
+  .imp-node rect{fill:var(--surface);stroke:var(--accent);stroke-width:1.3}
+  .imp-node text{font-family:var(--head)!important;font-weight:700;font-size:13px}
+  .imp-node text.sub{font-family:var(--body)!important;font-weight:400;font-size:10.5px;fill:var(--muted)}
+  .imp-method text{font-family:var(--mono)!important;font-size:11px;fill:var(--accent-3)}
+  .imp-method text.left{text-anchor:start}
+  .imp-method text.right{text-anchor:end}
+  .imp-grid-lines path{stroke:var(--card-border);stroke-width:1}
+  .imp-axis text{font-size:9px;fill:var(--faint);text-anchor:end}
+  .imp-bar rect{fill:var(--accent);opacity:.82}
+  .imp-bar rect.hi{fill:var(--accent-3);opacity:1}
+  .imp-val text{font-family:var(--mono)!important;font-size:10px;font-weight:700}
+  .imp-xlab text{font-size:9.5px;fill:var(--muted)}
+  .imp-note{font-size:.78rem;color:var(--muted);margin-top:8px}
+  .imp-bars{display:grid;gap:12px}
+  .imp-bars div{display:grid;grid-template-columns:minmax(0,1fr) 28px;grid-template-areas:"label val" "bar bar";gap:6px 10px;align-items:center}
+  .imp-bars span{grid-area:label;font-size:.86rem;color:var(--text)}
+  .imp-bars i{grid-area:val;font-style:normal;font-family:var(--mono);font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+  .imp-bars b{grid-area:bar;height:8px;border-radius:6px;background:linear-gradient(90deg,var(--accent) var(--w),var(--card-border) var(--w))}
+  .imp-reach{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:20px}
+  .imp-reach div{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r);padding:16px 18px}
+  .imp-reach b{display:block;font-family:var(--head);font-weight:800;font-size:1.6rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+  .imp-reach span{color:var(--muted);font-size:.82rem}
+  @media (max-width:900px){.imp-grid{grid-template-columns:1fr}.imp-reach{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:480px){.imp-reach{grid-template-columns:1fr}}
+
+</style>
 </head>
 <body>
 
@@ -557,6 +593,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
+      <li><a href="#impact">Impact</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -576,7 +613,7 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a>
+  <a href="#about">About</a><a href="#research">Research</a><a href="#impact">Impact</a><a href="#publications">Publications</a>
   <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#news">News</a><a href="#contact">Contact</a>
 </div>
 
@@ -585,15 +622,15 @@
   <div class="wrap" style="width:100%">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow"><span class="pulse"></span>PhD Candidate · Texas A&amp;M University · GPA 4.0</span>
+        <span class="eyebrow"><span class="pulse"></span>PhD Student · Texas A&amp;M University · GPA 4.0</span>
         <h1 class="hero-name">Md Shahidur<br><span class="grad">Rahaman</span></h1>
         <div class="typer-line"><span id="typer"></span></div>
         <p class="hero-sub">
-          PhD researcher in <strong>end-to-end encrypted communication</strong>,
-          <strong>authentication ceremonies</strong>, and <strong>ML/LLM security</strong> at the
+          PhD researcher in <strong>secure communication</strong>, <strong>trust and identity</strong>,
+          and <strong>AI and LLM security</strong> at the
           <a href="https://spies.engr.tamu.edu/" target="_blank" rel="noopener">SPIES Lab</a>, advised by
           <a href="https://nsaxena.engr.tamu.edu/" target="_blank" rel="noopener">Prof. Nitesh Saxena</a>,
-          with four years of industry software engineering experience in Germany and Bangladesh.
+          with three years of industry software engineering experience in Germany and Bangladesh.
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#research">
@@ -612,7 +649,7 @@
           <a href="https://www.linkedin.com/in/md-shahidur-rahaman-02443912a/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14.8H.2V8zm7.6 0h4.4v2h.06c.61-1.16 2.11-2.38 4.35-2.38 4.65 0 5.51 3.06 5.51 7.04v8.14h-4.6v-7.22c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.88-2.77 3.81v7.35H7.8V8z"/></svg>
           </a>
-          <a href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Md+Shahidur+Rahaman" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+          <a href="https://scholar.google.com/citations?user=FexbTskAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L0 9.5l4.84 2.97v5.7L12 22l7.16-3.83v-5.7l2.02-1.24V18h1.64V9.5L12 2zm0 2.08L19.4 9 12 13.08 4.6 9 12 4.08zm5.52 8.39v4.3L12 19.92l-5.52-3.15v-4.3L12 15.92l5.52-3.45z"/></svg>
           </a>
           <a href="mailto:mdshahidur_rahaman@tamu.edu" aria-label="Email" title="Email">
@@ -631,7 +668,7 @@
       <div class="stat"><b class="count" data-to="13">0</b><span>Peer-Reviewed Publications</span></div>
       <div class="stat"><b class="count" data-to="217">0</b><span>Citations · Google Scholar</span></div>
       <div class="stat"><b class="count" data-to="6">0</b><span>h-index</span></div>
-      <div class="stat"><b class="count" data-to="4" data-suffix="+">0</b><span>Years Industry Experience</span></div>
+      <div class="stat"><b class="count" data-to="3" data-suffix="+">0</b><span>Years Industry Experience</span></div>
     </div>
   </div>
   <div class="scroll-hint"><div class="wheel"></div>SCROLL</div>
@@ -660,7 +697,7 @@
       </div>
       <div class="about-txt rv">
         <p>
-          I am a <strong>PhD Candidate in Computer Science</strong> at Texas A&amp;M University (GPA 4.0), working with
+          I am a <strong>PhD student in Computer Science</strong> at Texas A&amp;M University (GPA 4.0), working with
           <strong>Prof. Nitesh Saxena</strong> in the SPIES Lab. My research examines how
           <strong>end-to-end encrypted communication holds up when real people and AI systems enter the picture</strong>.
         </p>
@@ -669,7 +706,7 @@
           with results published across leading venues in security, sensing, and machine learning.
         </p>
         <p>
-          Before research, I spent four years shipping production software: OAuth2/SAML systems in Germany,
+          Before research, I spent three years shipping production software: OAuth2/SAML systems in Germany,
           a debit-card API serving 3M+ banking customers in Bangladesh, and secure ASP.NET platforms for 100K+ users.
         </p>
         <div class="facts">
@@ -716,8 +753,8 @@
           <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
           <span class="status ok">ISC 2026</span>
         </div>
-        <h3>Authentication Ceremonies in E2EE Messaging</h3>
-        <p>A security evaluation of social-media-based identity verification in end-to-end encrypted messaging, accepted at the International Conference on Information Security (ISC) 2026.</p>
+        <h3>Identity Verification in Secure Messaging</h3>
+        <p>A security evaluation of social-media-based identity verification in end-to-end encrypted messaging, with a user study of 30 security-aware participants; accepted at the International Conference on Information Security (ISC) 2026.</p>
         <div class="tags"><i>E2EE</i><i>Authentication</i><i>User Study</i></div>
       </article>
 
@@ -754,10 +791,10 @@
       <article class="proj rv" data-cat="ai">
         <div class="proj-top">
           <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6M4.2 19.8l4.3-4.3M15.5 8.5l4.3-4.3"/></svg></span>
-          <span class="status ok">ROPP 2024</span>
+          <span class="status ok">ICML WORKSHOP 2024</span>
         </div>
         <h3>Quantune</h3>
-        <p>Automatic music generation using quantum computing, published in Reports on Progress in Physics.</p>
+        <p>Automatic music generation using quantum computing, presented at the LatinX in AI Research Workshop at ICML 2024.</p>
         <div class="tags"><i>Quantum Computing</i><i>Generative Models</i></div>
       </article>
 
@@ -777,13 +814,117 @@
           <span class="status">IN PROGRESS</span>
         </div>
         <h3>Ongoing Research</h3>
-        <p>Current projects at the SPIES Lab examine authentication ceremonies, device linking, and the role of AI in end-to-end encrypted communication. Details are shared after publication.</p>
+        <p>Current projects at the SPIES Lab examine how people, devices, and AI agents affect the security of private communication. Details are shared after publication.</p>
         <div class="tags"><i>E2EE</i><i>AI Security</i><i>Usable Security</i></div>
       </article>
 
     </div>
   </div>
 </section>
+
+<!-- ============================= IMPACT ============================= -->
+<section id="impact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">02b · Impact</span>
+      <h2>Research Impact</h2>
+      <p>One question runs through my work: does private communication stay secure once real people and AI systems are part of it? The map shows the directions I study and the methods I use; the charts summarize the record so far.</p>
+    </div>
+
+    <div class="imp-grid">
+      <figure class="imp-card imp-map rv">
+        <figcaption>Research map</figcaption>
+        <svg viewBox="0 0 520 400" role="img" aria-label="Research map: secure communication at the centre, four research directions around it, and four methods on the outer ring">
+          <g class="imp-ring">
+            <circle cx="260" cy="200" r="178"/>
+            <circle cx="260" cy="200" r="110"/>
+          </g>
+          <g class="imp-spokes">
+            <path d="M260 200 L150 112"/><path d="M260 200 L370 112"/>
+            <path d="M260 200 L150 288"/><path d="M260 200 L370 288"/>
+          </g>
+          <g class="imp-core">
+            <circle cx="260" cy="200" r="58"/>
+            <text x="260" y="196">Secure</text>
+            <text x="260" y="214">communication</text>
+          </g>
+          <g class="imp-node">
+            <rect x="80" y="86" width="140" height="50" rx="10"/>
+            <text x="150" y="107">Identity &amp; trust</text>
+            <text x="150" y="124" class="sub">who is really there</text>
+          </g>
+          <g class="imp-node">
+            <rect x="300" y="86" width="140" height="50" rx="10"/>
+            <text x="370" y="107">Human factors</text>
+            <text x="370" y="124" class="sub">decisions under attack</text>
+          </g>
+          <g class="imp-node">
+            <rect x="80" y="264" width="140" height="50" rx="10"/>
+            <text x="150" y="285">AI agents</text>
+            <text x="150" y="302" class="sub">AI as a security actor</text>
+          </g>
+          <g class="imp-node">
+            <rect x="300" y="264" width="140" height="50" rx="10"/>
+            <text x="370" y="285">LLM privacy</text>
+            <text x="370" y="302" class="sub">what assistants learn</text>
+          </g>
+          <g class="imp-method">
+            <text x="260" y="14">Formal verification</text>
+            <text x="260" y="394">Adversarial evaluation</text>
+            <text x="44" y="204" class="left">User studies</text>
+            <text x="476" y="204" class="right">Prototypes</text>
+          </g>
+        </svg>
+      </figure>
+
+      <div class="imp-side">
+        <figure class="imp-card rv">
+          <figcaption>Peer-reviewed publications by year</figcaption>
+          <svg viewBox="0 0 320 170" role="img" aria-label="Publications by year: 2018 two, 2021 one, 2023 four, 2024 four, 2026 two">
+            <g class="imp-grid-lines">
+              <path d="M30 140 H312"/><path d="M30 110 H312"/><path d="M30 80 H312"/><path d="M30 50 H312"/><path d="M30 20 H312"/>
+            </g>
+            <g class="imp-axis"><text x="24" y="143">0</text><text x="24" y="83">2</text><text x="24" y="23">4</text></g>
+            <!-- scale: 30px per publication, baseline y=140 -->
+            <g class="imp-bar">
+              <rect x="38" y="80" width="22" height="60" rx="3"/>
+              <rect x="102" y="110" width="22" height="30" rx="3"/>
+              <rect x="166" y="20" width="22" height="120" rx="3"/>
+              <rect x="198" y="20" width="22" height="120" rx="3"/>
+              <rect x="262" y="80" width="22" height="60" rx="3" class="hi"/>
+            </g>
+            <g class="imp-val">
+              <text x="49" y="74">2</text><text x="113" y="104">1</text><text x="177" y="13">4</text><text x="209" y="13">4</text><text x="273" y="74">2</text>
+            </g>
+            <g class="imp-xlab">
+              <text x="49" y="158">2018</text><text x="81" y="158">'19</text><text x="113" y="158">2021</text><text x="145" y="158">'22</text>
+              <text x="177" y="158">2023</text><text x="209" y="158">2024</text><text x="241" y="158">'25</text><text x="273" y="158">2026</text>
+            </g>
+          </svg>
+          <p class="imp-note">2026 papers appeared at ISC and ACM WiSec. Lead-author work is currently under review.</p>
+        </figure>
+
+        <figure class="imp-card rv">
+          <figcaption>Publications by area</figcaption>
+          <div class="imp-bars" role="list">
+            <div role="listitem"><span>Applied computing &amp; health</span><b style="--w:100%"></b><i>5</i></div>
+            <div role="listitem"><span>Security &amp; privacy</span><b style="--w:80%"></b><i>4</i></div>
+            <div role="listitem"><span>Machine learning &amp; AI</span><b style="--w:60%"></b><i>3</i></div>
+            <div role="listitem"><span>Software systems</span><b style="--w:20%"></b><i>1</i></div>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <div class="imp-reach rv">
+      <div><b>3M+</b><span>bank customers served by APIs I built</span></div>
+      <div><b>140+</b><span>participants across user studies I led or contributed to</span></div>
+      <div><b>110+</b><span>students in a cybersecurity education project I directed</span></div>
+      <div><b>7</b><span>undergraduate researchers mentored</span></div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ============================= PUBLICATIONS ============================= -->
 <section id="publications">
@@ -828,10 +969,10 @@
         <h3>Graduate Research Assistant</h3>
         <div class="org"><a href="https://spies.engr.tamu.edu/" target="_blank" rel="noopener">Texas A&amp;M University · SPIES Lab</a> · College Station, TX</div>
         <ul>
-          <li>Research the security of <b>end-to-end encrypted messaging</b> and authentication ceremonies, with first-authored work accepted at <b>ISC 2026</b>.</li>
+          <li>Research the security of <b>end-to-end encrypted communication</b>; second and corresponding author of work accepted at <b>ISC 2026</b>.</li>
           <li>Co-authored <b>TrackAR</b>, a study of AR/VR device fingerprinting via shared motion sensor data, accepted at <b>ACM WiSec 2026</b>.</li>
-          <li>Design and conduct <b>IRB-approved empirical user studies</b> on secure messaging, device linking, and authentication.</li>
-          <li>Develop research prototypes spanning <b>authentication, device linking, and AI security</b>; details are shared after publication.</li>
+          <li>Design and conduct <b>IRB-approved user studies</b> on how people make security decisions in private communication.</li>
+          <li>Build research prototypes and formal models spanning <b>identity, trust, and AI agent security</b>; details are shared after publication.</li>
         </ul>
       </div>
 
@@ -923,7 +1064,7 @@
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
           <h3>Security</h3>
         </div>
-        <div class="chips"><i>End-to-End Encryption</i><i>Auth Ceremonies</i><i>Device Linking</i><i>SAS Protocols</i><i>WebAuthn/FIDO2</i><i>OAuth2</i><i>TLS</i><i>Threat Modeling</i><i>OWASP</i><i>Adversarial ML</i><i>LLM Security</i><i>Prompt Injection</i></div>
+        <div class="chips"><i>End-to-End Encryption</i><i>Authentication</i><i>Formal Verification</i><i>WebAuthn/FIDO2</i><i>OAuth2</i><i>TLS</i><i>Threat Modeling</i><i>OWASP</i><i>Adversarial ML</i><i>LLM Security</i><i>Prompt Injection</i></div>
       </div>
 
       <div class="skill-card rv">
@@ -947,7 +1088,7 @@
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6M4.2 19.8l4.3-4.3M15.5 8.5l4.3-4.3"/></svg></span>
           <h3>Concepts</h3>
         </div>
-        <div class="chips"><i>Distributed Systems</i><i>Microservices</i><i>API Design</i><i>Protocol Design</i><i>Passkey Architecture</i><i>Secure System Design</i><i>Empirical User Studies</i></div>
+        <div class="chips"><i>Distributed Systems</i><i>Microservices</i><i>API Design</i><i>Protocol Design</i><i>Secure System Design</i><i>Empirical User Studies</i></div>
       </div>
 
     </div>
@@ -1068,7 +1209,7 @@
         <a href="https://www.linkedin.com/in/md-shahidur-rahaman-02443912a/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v14.8H.2V8zm7.6 0h4.4v2h.06c.61-1.16 2.11-2.38 4.35-2.38 4.65 0 5.51 3.06 5.51 7.04v8.14h-4.6v-7.22c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.88-2.77 3.81v7.35H7.8V8z"/></svg>
         </a>
-        <a href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Md+Shahidur+Rahaman" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+        <a href="https://scholar.google.com/citations?user=FexbTskAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L0 9.5l4.84 2.97v5.7L12 22l7.16-3.83v-5.7l2.02-1.24V18h1.64V9.5L12 2zm0 2.08L19.4 9 12 13.08 4.6 9 12 4.08zm5.52 8.39v4.3L12 19.92l-5.52-3.15v-4.3L12 15.92l5.52-3.45z"/></svg>
         </a>
         <a href="Resume.pdf" target="_blank" rel="noopener" aria-label="Resume" title="Download CV">
@@ -1085,7 +1226,7 @@
   <div class="wrap">
     <div class="ft-logo">Md Shahidur Rahaman</div>
     <p>&copy; <span id="yr"></span> Md Shahidur Rahaman · Built with curiosity in College Station, TX.</p>
-    <p style="margin-top:6px;font-size:.72rem">Research interests: E2EE · Authentication Protocols · ML/LLM Security · AI Privacy · Device-Linking Security · AR/VR Privacy · Cryptographic Protocol Design</p>
+    <p style="margin-top:6px;font-size:.72rem">Research interests: Secure Communication · Authentication · AI Agent Security · LLM Privacy · Human-Centered Security · Formal Verification</p>
   </div>
 </footer>
 
@@ -1178,9 +1319,9 @@
   /* ---------- hero typer ---------- */
   var phrases=[
     'Securing end-to-end encrypted communication.',
-    'Studying authentication and device linking.',
+    'Studying trust and identity in private communication.',
     'Advancing ML and LLM security.',
-    'PhD Candidate at Texas A&M · GPA 4.0'
+    'PhD student at Texas A&M · GPA 4.0'
   ];
   var tEl=$('#typer'), pi=0, ci=0, deleting=false;
   function typeLoop(){
@@ -1210,14 +1351,14 @@
   var termBody=$('#termBody');
   var termLines=[
     {t:'<span class="c-p">shahidur@spies-lab</span>:<span class="c-key">~/research</span>$ <span class="c-cmd">whoami</span>',d:60},
-    {t:'<span class="c-ok">PhD Candidate &middot; Computer Science &middot; Texas A&amp;M</span>',d:30},
+    {t:'<span class="c-ok">PhD Student &middot; Computer Science &middot; Texas A&amp;M</span>',d:30},
     {t:'<span class="c-p">shahidur@spies-lab</span>:<span class="c-key">~/research</span>$ <span class="c-cmd">cat focus.txt</span>',d:60},
-    {t:'  <span class="c-key">&rarr;</span> End-to-End Encryption &amp; Auth Ceremonies',d:30},
+    {t:'  <span class="c-key">&rarr;</span> Secure Communication &amp; Trust',d:30},
     {t:'  <span class="c-key">&rarr;</span> ML / LLM Security &amp; AI Privacy',d:30},
-    {t:'  <span class="c-key">&rarr;</span> Device-Linking &amp; Passkey Architecture',d:30},
+    {t:'  <span class="c-key">&rarr;</span> AI Agents &amp; Human-Centered Security',d:30},
     {t:'<span class="c-p">shahidur@spies-lab</span>:<span class="c-key">~/research</span>$ <span class="c-cmd">./impact --summary</span>',d:60},
     {t:'  <span class="c-ok">13</span> publications  <span class="c-ok">217</span> citations  <span class="c-ok">h-index 6</span>',d:30},
-    {t:'  <span class="c-ok">4+</span> years industry &middot; <span class="c-ok">7</span> students mentored',d:30},
+    {t:'  <span class="c-ok">3+</span> years industry &middot; <span class="c-ok">7</span> students mentored',d:30},
     {t:'<span class="c-p">shahidur@spies-lab</span>:<span class="c-key">~/research</span>$ <span class="c-dim">_</span>',d:60}
   ];
   function renderTerm(){
@@ -1265,11 +1406,11 @@
 
   /* ---------- publications data + render ---------- */
   var PUBS=[
-    {n:1,title:'Stress Testing Social Media Authentication Ceremonies of End-to-End Encrypted Messaging with Ephemeral Fake Accounts',authors:'<b>M. S. Rahaman</b>, N. Saxena',venue:'Intl. Conference on Information Security (ISC)',year:'2026',type:'pub'},
+    {n:1,title:'Stress Testing Social Media Authentication Ceremonies of End-to-End Encrypted Messaging with Ephemeral Fake Accounts',authors:'M. Alatawi, <b>M. S. Rahaman</b>*, N. Saxena',venue:'Intl. Conference on Information Security (ISC)',year:'2026',type:'pub'},
     {n:2,title:'TrackAR: AR/VR Device Fingerprinting and User-Device Pairing Detection via Shared Motion Sensor Data',authors:'A. T. Mahdad, <b>M. S. Rahaman</b>, N. Saxena',venue:'ACM WiSec',year:'2026',type:'pub'},
     {n:3,title:'A Dataset of Microservices-Based Open-Source Projects',authors:"D. Amoroso d'Aragona, A. Bakhtin, X. Li, R. Su, &hellip;, <b>M. S. Rahaman</b>, M. M&auml;ntyl&auml;, T. &#268;ern&yacute;, D. Taibi",venue:'21st Intl. Conference on Mining Software Repositories (MSR)',year:'2024',type:'pub'},
     {n:4,title:'Navigating the Multimodal Landscape: A Review on Integration of Text and Image Data in Machine Learning Architectures',authors:'M. Binte Rashid, <b>M. S. Rahaman</b>, P. Rivas',venue:'Machine Learning and Knowledge Extraction, 6(3):1545&ndash;1563',year:'2024',type:'pub'},
-    {n:5,title:'Quantune: An Automatic Music Generation Using Quantum Computing',authors:'<b>M. S. Rahaman</b>, A. Islam, J. Orduz',venue:'Reports on Progress in Physics',year:'2024',type:'pub'},
+    {n:5,title:'Quantune: An Automatic Music Generation Using Quantum Computing',authors:'<b>M. S. Rahaman</b>, A. Islam, J. Orduz',venue:'LatinX in AI (LXAI) Research Workshop at ICML',year:'2024',type:'pub'},
     {n:6,title:'A Comparative Evaluation of Image Caption Synthesis Using Deep Neural Network',authors:'S. N. Tisha, <b>M. S. Rahaman</b>, P. Rivas',venue:'Next Generation Data Science (SDSC), Springer LNCS',year:'2024',type:'pub'},
     {n:7,title:'Static-Analysis-Based Solutions to Security Challenges in Cloud-Native Systems',authors:'<b>M. S. Rahaman</b>, A. Islam, T. &#268;ern&yacute;, S. Hutton',venue:'Sensors, 23(4):1755',year:'2023',type:'pub',url:'https://www.mdpi.com/1424-8220/23/4/1755'},
     {n:8,title:'Access Control Design Practice and Solutions in Cloud-Native Architecture: A Systematic Mapping Study',authors:'<b>M. S. Rahaman</b>, S. N. Tisha, E. Song, T. &#268;ern&yacute;',venue:'Sensors, 23(7):3413',year:'2023',type:'pub',url:'https://www.mdpi.com/1424-8220/23/7/3413'},
@@ -1312,7 +1453,7 @@
      Fields: date (shown in the pill), tag (small label), title, text. */
   var NEWS=[
     {date:'2026',tag:'Paper Accepted',title:'Paper accepted at ISC 2026',
-     text:'Our study of social-media-based authentication ceremonies in end-to-end encrypted messaging will appear at the International Conference on Information Security.'},
+     text:'Our study of social-media-based identity verification in end-to-end encrypted messaging will appear at the International Conference on Information Security.'},
     {date:'2026',tag:'Paper Accepted',title:'TrackAR accepted at ACM WiSec 2026',
      text:'AR/VR device fingerprinting and user-device pairing detection via shared motion sensor data, joint work with A. T. Mahdad and Prof. N. Saxena.'},
     {date:'2024',tag:'Milestone',title:'Joined the SPIES Lab at Texas A&M',
