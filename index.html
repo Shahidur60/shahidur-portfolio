@@ -543,6 +543,11 @@
     .rv{opacity:1;transform:none}
   }
     /* ---------- impact section ---------- */
+  .imp-card.imp-lab{margin-top:20px}
+  .imp-lab-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:22px;align-items:center}
+  .imp-lab-grid img{width:100%;height:auto;border-radius:10px;background:#fff}
+  .imp-lab-grid p{color:var(--muted);font-size:.92rem;margin-bottom:14px}
+  @media (max-width:900px){.imp-lab-grid{grid-template-columns:1fr}}
   .imp-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start}
   .imp-side{display:grid;gap:20px;min-width:0}
   .imp-card{margin:0;background:var(--card);border:1px solid var(--card-border);border-radius:var(--r);padding:20px 22px;min-width:0}
@@ -591,9 +596,9 @@
   <div class="nav-inner">
     <a class="logo" href="#hero"><span class="dot"></span>Shahidur&nbsp;<span class="path">Rahaman</span></a>
     <ul class="nav-links" id="navLinks">
+      <li><a href="#impact">Impact</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
-      <li><a href="#impact">Impact</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -613,7 +618,7 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about">About</a><a href="#research">Research</a><a href="#impact">Impact</a><a href="#publications">Publications</a>
+  <a href="#impact">Impact</a><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a>
   <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#news">News</a><a href="#contact">Contact</a>
 </div>
 
@@ -675,6 +680,121 @@
 </header>
 
 <main>
+
+<!-- ============================= IMPACT ============================= -->
+<section id="impact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-tag">Impact at a glance</span>
+      <h2>Research Impact</h2>
+      <p>One question runs through my work: does private communication stay secure once real people and AI systems are part of it? The map shows the directions I study and the methods I use; the charts summarize the record so far.</p>
+    </div>
+
+    <div class="imp-grid">
+      <figure class="imp-card imp-map rv">
+        <figcaption>Research map</figcaption>
+        <svg viewBox="0 0 520 400" role="img" aria-label="Research map: secure communication at the centre, four research directions around it, and four methods on the outer ring">
+          <g class="imp-ring">
+            <circle cx="260" cy="200" r="178"/>
+            <circle cx="260" cy="200" r="110"/>
+          </g>
+          <g class="imp-spokes">
+            <path d="M260 200 L150 112"/><path d="M260 200 L370 112"/>
+            <path d="M260 200 L150 288"/><path d="M260 200 L370 288"/>
+          </g>
+          <g class="imp-core">
+            <circle cx="260" cy="200" r="58"/>
+            <text x="260" y="196">Secure</text>
+            <text x="260" y="214">communication</text>
+          </g>
+          <g class="imp-node">
+            <rect x="80" y="86" width="140" height="50" rx="10"/>
+            <text x="150" y="107">Identity &amp; trust</text>
+            <text x="150" y="124" class="sub">who is really there</text>
+          </g>
+          <g class="imp-node">
+            <rect x="300" y="86" width="140" height="50" rx="10"/>
+            <text x="370" y="107">Human factors</text>
+            <text x="370" y="124" class="sub">decisions under attack</text>
+          </g>
+          <g class="imp-node">
+            <rect x="80" y="264" width="140" height="50" rx="10"/>
+            <text x="150" y="285">AI agents</text>
+            <text x="150" y="302" class="sub">AI as a security actor</text>
+          </g>
+          <g class="imp-node">
+            <rect x="300" y="264" width="140" height="50" rx="10"/>
+            <text x="370" y="285">LLM privacy</text>
+            <text x="370" y="302" class="sub">what assistants learn</text>
+          </g>
+          <g class="imp-method">
+            <text x="260" y="14">Formal verification</text>
+            <text x="260" y="394">Adversarial evaluation</text>
+            <text x="44" y="204" class="left">User studies</text>
+            <text x="476" y="204" class="right">Prototypes</text>
+          </g>
+        </svg>
+      </figure>
+
+      <div class="imp-side">
+        <figure class="imp-card rv">
+          <figcaption>Peer-reviewed publications by year</figcaption>
+          <svg viewBox="0 0 320 170" role="img" aria-label="Publications by year: 2018 two, 2021 one, 2023 four, 2024 four, 2026 two">
+            <g class="imp-grid-lines">
+              <path d="M30 140 H312"/><path d="M30 110 H312"/><path d="M30 80 H312"/><path d="M30 50 H312"/><path d="M30 20 H312"/>
+            </g>
+            <g class="imp-axis"><text x="24" y="143">0</text><text x="24" y="83">2</text><text x="24" y="23">4</text></g>
+            <!-- scale: 30px per publication, baseline y=140 -->
+            <g class="imp-bar">
+              <rect x="38" y="80" width="22" height="60" rx="3"/>
+              <rect x="102" y="110" width="22" height="30" rx="3"/>
+              <rect x="166" y="20" width="22" height="120" rx="3"/>
+              <rect x="198" y="20" width="22" height="120" rx="3"/>
+              <rect x="262" y="80" width="22" height="60" rx="3" class="hi"/>
+            </g>
+            <g class="imp-val">
+              <text x="49" y="74">2</text><text x="113" y="104">1</text><text x="177" y="13">4</text><text x="209" y="13">4</text><text x="273" y="74">2</text>
+            </g>
+            <g class="imp-xlab">
+              <text x="49" y="158">2018</text><text x="81" y="158">'19</text><text x="113" y="158">2021</text><text x="145" y="158">'22</text>
+              <text x="177" y="158">2023</text><text x="209" y="158">2024</text><text x="241" y="158">'25</text><text x="273" y="158">2026</text>
+            </g>
+          </svg>
+          <p class="imp-note">2026 papers appeared at ISC and ACM WiSec. Lead-author work is currently under review.</p>
+        </figure>
+
+        <figure class="imp-card rv">
+          <figcaption>Publications by area</figcaption>
+          <div class="imp-bars" role="list">
+            <div role="listitem"><span>Applied computing &amp; health</span><b style="--w:100%"></b><i>5</i></div>
+            <div role="listitem"><span>Security &amp; privacy</span><b style="--w:80%"></b><i>4</i></div>
+            <div role="listitem"><span>Machine learning &amp; AI</span><b style="--w:60%"></b><i>3</i></div>
+            <div role="listitem"><span>Software systems</span><b style="--w:20%"></b><i>1</i></div>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <div class="imp-reach rv">
+      <div><b>3M+</b><span>bank customers served by APIs I built</span></div>
+      <div><b>140+</b><span>participants across user studies I led or contributed to</span></div>
+      <div><b>110+</b><span>students in a cybersecurity education project I directed</span></div>
+      <div><b>7</b><span>undergraduate researchers mentored</span></div>
+    </div>
+
+    <figure class="imp-card imp-lab rv">
+      <figcaption>Open project · Agentic E2EE Lab</figcaption>
+      <div class="imp-lab-grid">
+        <img src="assets/img/lab_attack_success.png" alt="Bar chart: prompt-injection attack success for three simulated assistants under no guard, a confirmation prompt, and a capability guard; the capability guard reaches 0% for all three" loading="lazy">
+        <div>
+          <p>An AI assistant inside a working end-to-end encrypted messenger, attacked with prompt injection hidden in encrypted messages. Across 675 runs with three simulated assistants, a capability guard reduced attack success from as high as 100% to 0%, with no loss in task success.</p>
+          <a class="btn btn-ghost" href="https://github.com/Shahidur60/agentic-e2ee-lab" target="_blank" rel="noopener">View code and results</a>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
 
 <!-- ============================= ABOUT ============================= -->
 <section id="about">
@@ -788,14 +908,14 @@
         <div class="tags"><i>Multimodal</i><i>NLP</i><i>Vision</i></div>
       </article>
 
-      <article class="proj rv" data-cat="ai">
+      <article class="proj rv" data-cat="security ai">
         <div class="proj-top">
-          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6M4.2 19.8l4.3-4.3M15.5 8.5l4.3-4.3"/></svg></span>
-          <span class="status ok">ICML WORKSHOP 2024</span>
+          <span class="proj-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg></span>
+          <span class="status ok">OPEN SOURCE</span>
         </div>
-        <h3>Quantune</h3>
-        <p>Automatic music generation using quantum computing, presented at the LatinX in AI Research Workshop at ICML 2024.</p>
-        <div class="tags"><i>Quantum Computing</i><i>Generative Models</i></div>
+        <h3><a href="https://github.com/Shahidur60/agentic-e2ee-lab" target="_blank" rel="noopener">Agentic E2EE Lab</a></h3>
+        <p>A working encrypted messenger with an AI assistant inside, attacked with prompt injection hidden in encrypted messages. A capability guard cut attack success from up to 100% to 0% in simulation, with no loss in task success.</p>
+        <div class="tags"><i>E2EE</i><i>AI Agents</i><i>Prompt Injection</i><i>Python</i></div>
       </article>
 
       <article class="proj rv" data-cat="sys">
@@ -841,110 +961,6 @@
     </div>
   </div>
 </section>
-
-<!-- ============================= IMPACT ============================= -->
-<section id="impact">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="sec-tag">02b · Impact</span>
-      <h2>Research Impact</h2>
-      <p>One question runs through my work: does private communication stay secure once real people and AI systems are part of it? The map shows the directions I study and the methods I use; the charts summarize the record so far.</p>
-    </div>
-
-    <div class="imp-grid">
-      <figure class="imp-card imp-map rv">
-        <figcaption>Research map</figcaption>
-        <svg viewBox="0 0 520 400" role="img" aria-label="Research map: secure communication at the centre, four research directions around it, and four methods on the outer ring">
-          <g class="imp-ring">
-            <circle cx="260" cy="200" r="178"/>
-            <circle cx="260" cy="200" r="110"/>
-          </g>
-          <g class="imp-spokes">
-            <path d="M260 200 L150 112"/><path d="M260 200 L370 112"/>
-            <path d="M260 200 L150 288"/><path d="M260 200 L370 288"/>
-          </g>
-          <g class="imp-core">
-            <circle cx="260" cy="200" r="58"/>
-            <text x="260" y="196">Secure</text>
-            <text x="260" y="214">communication</text>
-          </g>
-          <g class="imp-node">
-            <rect x="80" y="86" width="140" height="50" rx="10"/>
-            <text x="150" y="107">Identity &amp; trust</text>
-            <text x="150" y="124" class="sub">who is really there</text>
-          </g>
-          <g class="imp-node">
-            <rect x="300" y="86" width="140" height="50" rx="10"/>
-            <text x="370" y="107">Human factors</text>
-            <text x="370" y="124" class="sub">decisions under attack</text>
-          </g>
-          <g class="imp-node">
-            <rect x="80" y="264" width="140" height="50" rx="10"/>
-            <text x="150" y="285">AI agents</text>
-            <text x="150" y="302" class="sub">AI as a security actor</text>
-          </g>
-          <g class="imp-node">
-            <rect x="300" y="264" width="140" height="50" rx="10"/>
-            <text x="370" y="285">LLM privacy</text>
-            <text x="370" y="302" class="sub">what assistants learn</text>
-          </g>
-          <g class="imp-method">
-            <text x="260" y="14">Formal verification</text>
-            <text x="260" y="394">Adversarial evaluation</text>
-            <text x="44" y="204" class="left">User studies</text>
-            <text x="476" y="204" class="right">Prototypes</text>
-          </g>
-        </svg>
-      </figure>
-
-      <div class="imp-side">
-        <figure class="imp-card rv">
-          <figcaption>Peer-reviewed publications by year</figcaption>
-          <svg viewBox="0 0 320 170" role="img" aria-label="Publications by year: 2018 two, 2021 one, 2023 four, 2024 four, 2026 two">
-            <g class="imp-grid-lines">
-              <path d="M30 140 H312"/><path d="M30 110 H312"/><path d="M30 80 H312"/><path d="M30 50 H312"/><path d="M30 20 H312"/>
-            </g>
-            <g class="imp-axis"><text x="24" y="143">0</text><text x="24" y="83">2</text><text x="24" y="23">4</text></g>
-            <!-- scale: 30px per publication, baseline y=140 -->
-            <g class="imp-bar">
-              <rect x="38" y="80" width="22" height="60" rx="3"/>
-              <rect x="102" y="110" width="22" height="30" rx="3"/>
-              <rect x="166" y="20" width="22" height="120" rx="3"/>
-              <rect x="198" y="20" width="22" height="120" rx="3"/>
-              <rect x="262" y="80" width="22" height="60" rx="3" class="hi"/>
-            </g>
-            <g class="imp-val">
-              <text x="49" y="74">2</text><text x="113" y="104">1</text><text x="177" y="13">4</text><text x="209" y="13">4</text><text x="273" y="74">2</text>
-            </g>
-            <g class="imp-xlab">
-              <text x="49" y="158">2018</text><text x="81" y="158">'19</text><text x="113" y="158">2021</text><text x="145" y="158">'22</text>
-              <text x="177" y="158">2023</text><text x="209" y="158">2024</text><text x="241" y="158">'25</text><text x="273" y="158">2026</text>
-            </g>
-          </svg>
-          <p class="imp-note">2026 papers appeared at ISC and ACM WiSec. Lead-author work is currently under review.</p>
-        </figure>
-
-        <figure class="imp-card rv">
-          <figcaption>Publications by area</figcaption>
-          <div class="imp-bars" role="list">
-            <div role="listitem"><span>Applied computing &amp; health</span><b style="--w:100%"></b><i>5</i></div>
-            <div role="listitem"><span>Security &amp; privacy</span><b style="--w:80%"></b><i>4</i></div>
-            <div role="listitem"><span>Machine learning &amp; AI</span><b style="--w:60%"></b><i>3</i></div>
-            <div role="listitem"><span>Software systems</span><b style="--w:20%"></b><i>1</i></div>
-          </div>
-        </figure>
-      </div>
-    </div>
-
-    <div class="imp-reach rv">
-      <div><b>3M+</b><span>bank customers served by APIs I built</span></div>
-      <div><b>140+</b><span>participants across user studies I led or contributed to</span></div>
-      <div><b>110+</b><span>students in a cybersecurity education project I directed</span></div>
-      <div><b>7</b><span>undergraduate researchers mentored</span></div>
-    </div>
-  </div>
-</section>
-
 
 <!-- ============================= PUBLICATIONS ============================= -->
 <section id="publications">
